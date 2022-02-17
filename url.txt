@@ -1,0 +1,7 @@
+
+jdbc:sqlserver://MINH-PC\MINHPC:1433;databaseName=SE1608
+
+
+git add .
+git commit -m "first commit"
+git push
