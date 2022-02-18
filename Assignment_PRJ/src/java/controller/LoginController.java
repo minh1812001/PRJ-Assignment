@@ -5,20 +5,37 @@
  */
 package controller;
 
-import dalAccount.AccountDBContext;
+import dal.UserDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Account;
+import javax.servlet.http.HttpSession;
+import model.User;
 
 /**
  *
  * @author Minh-PC
  */
 public class LoginController extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.getRequestDispatcher("login.jsp").forward(request, response);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -32,7 +49,30 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        Cookie cookies[] = request.getCookies();
+
+        String user = null;
+        String pass = null;
+        if (cookies != null) {
+            for (Cookie cooky : cookies) {
+                if (cooky.getName().equals("user_cookie")) {
+                    user = cooky.getValue();
+                }
+                if (cooky.getName().equals("pass_cookie")) {
+                    request.setAttribute("password", cooky.getValue());
+                    pass = cooky.getValue();
+                }
+            }
+        }
+        UserDBContext db = new UserDBContext();
+        User acc = db.checkLogin(user, pass);
+        if (acc == null) {
+            request.getRequestDispatcher("view/login.jsp").forward(request, response);
+        } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("acc", acc);
+            response.sendRedirect("index.html");
+        }
     }
 
     /**
@@ -46,24 +86,36 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        
-        AccountDBContext db = new AccountDBContext();
-        Account account = db.getAccount(username, password);
-        if(account == null)
-        {
-            request.getSession().setAttribute("account", null);
-            response.getWriter().println("login failed!");
-            response.sendRedirect("login.jsp");
-        }
-        else
-        {
-            request.getSession().setAttribute("account", account);
-            response.getWriter().println("login successful! welcome " + account.getDisplayname());
-            response.sendRedirect("index1.html");
-        }
+                String username = request.getParameter("user");
+        String password = request.getParameter("pass");
+        String remember = request.getParameter("remember");
 
+        UserDBContext db = new UserDBContext();
+        User acc = db.checkLogin(username, password);
+
+        if (db.checkUser(username) == null) {
+            request.setAttribute("w_name", "Username is not correct");
+            request.getRequestDispatcher("view/login.jsp").forward(request, response);
+        } else if (acc == null) {
+            request.setAttribute("wrong", "Password is not correct");
+            request.getRequestDispatcher("view/login.jsp").forward(request, response);
+        } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("acc", acc);
+//            Cookie c = new Cookie("user_cookie", username);
+//            Cookie p = new Cookie("pass_cookie", password);
+//            if (remember != null) {
+//                c.setMaxAge(10);
+//                p.setMaxAge(10);
+//            } else {
+//                c.setMaxAge(0);
+//                p.setMaxAge(0);
+//            }
+//            response.addCookie(c);
+//            response.addCookie(p);
+
+            response.sendRedirect("home");
+        }
     }
 
     /**
@@ -75,4 +127,5 @@ public class LoginController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 }

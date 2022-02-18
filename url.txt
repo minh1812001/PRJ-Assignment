@@ -6,4 +6,4 @@ git add .
 git commit -m "first commit"
 git push
 
-$ git filter-branch -f --index-filter 'git rm -r -f --ignore-unmatch <FILE_TO_REMOVE>' HEAD 
+$ git filter-branch -f --index-filter 'git rm -r -f --ignore-unmatch MGC_8.4.300_A10_V0a_MGC.apk' HEAD 
