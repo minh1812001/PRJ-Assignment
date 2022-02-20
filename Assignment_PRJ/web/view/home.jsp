@@ -337,9 +337,9 @@
                   <div class="col-lg-3 offset-mdlg-2     col-md-4 offset-md-1">
                      <h3>Contact </h3>
                      <ul class="conta">
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Location</li>
-                        <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> minh1812001@gmail.com</a></li>
-                        <li><i class="fa fa-mobile" aria-hidden="true"></i> Call : +84 43383101</li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ</li>
+                        <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> Email: minh1812001@gmail.com</a></li>
+                        <li><i class="fa fa-mobile" aria-hidden="true"></i> Phone : +84 43383101</li>
                      </ul>
                   </div>
                </div>
