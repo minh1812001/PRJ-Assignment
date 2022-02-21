@@ -5,26 +5,35 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Minh-PC
  */
 public class Product {
+
     private int id;
+    private int category_id;
+    private String name;
     private int quantity;
     private double price;
-    private String name;
-    private String note;
+    private String description;
+    private String imageURL;
+    private Date created_date;
 
     public Product() {
     }
 
-    public Product(int id, int quantity, double price, String name, String note) {
+    public Product(int id, int category_id, String name, int quantity, double price, String description, String imageURL, Date created_date) {
         this.id = id;
+        this.category_id = category_id;
+        this.name = name;
         this.quantity = quantity;
         this.price = price;
-        this.name = name;
-        this.note = note;
+        this.description = description;
+        this.imageURL = imageURL;
+        this.created_date = created_date;
     }
 
     public int getId() {
@@ -33,6 +42,22 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(int category_id) {
+        this.category_id = category_id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getQuantity() {
@@ -51,26 +76,33 @@ public class Product {
         this.price = price;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getNote() {
-        return note;
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public void setNote(String note) {
-        this.note = note;
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public Date getCreated_date() {
+        return created_date;
+    }
+
+    public void setCreated_date(Date created_date) {
+        this.created_date = created_date;
     }
 
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", quantity=" + quantity + ", price=" + price + ", name=" + name + ", note=" + note + '}';
+        return "Product{" + "id=" + id + ", category_id=" + category_id + ", name=" + name + ", quantity=" + quantity + ", price=" + price + ", description=" + description + ", imageURL=" + imageURL + ", created_date=" + created_date + '}';
     }
-    
-  
+
 }
