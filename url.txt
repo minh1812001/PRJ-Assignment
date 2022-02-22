@@ -1,5 +1,5 @@
 
-jdbc:sqlserver://MINH-PC\SQLEXPRESS:1433;databaseName=SE1608
+jdbc:sqlserver://MINH-PC\SQLEXPRESS:1433;databaseName=PRJ_Assignment
 
 git add .
 git commit -m "first commit"

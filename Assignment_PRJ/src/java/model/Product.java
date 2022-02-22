@@ -11,6 +11,7 @@ import java.sql.Date;
  *
  * @author Minh-PC
  */
+
 public class Product {
 
     private int id;
