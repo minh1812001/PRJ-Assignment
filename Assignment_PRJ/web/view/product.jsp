@@ -1,6 +1,6 @@
 <%-- 
-    Document   : gallery
-    Created on : Feb 23, 2022, 2:16:20 PM
+    Document   : product
+    Created on : Feb 27, 2022, 9:35:36 AM
     Author     : Minh-PC
 --%>
 
@@ -68,20 +68,17 @@
                                         <li class="nav-item ">
                                             <a class="nav-link" href="home.jsp">Trang chủ</a>
                                         </li>
-                                        <!--                                        <li class="nav-item">
-                                                                                    <a class="nav-link" href="about.html">About</a>
-                                                                                </li>-->
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="product.html">Một số sản phẩm</a>
-                                        </li>
+                                        <!--                              <li class="nav-item">
+                                                                         <a class="nav-link" href="about.html">About</a>
+                                                                      </li>-->
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="#">Bộ sưu tập</a>
+                                            <a class="nav-link" href="#">Một số sản phẩm</a>
                                         </li>
-                                        <!--                                        <li class="nav-item">
-                                                                                    <a class="nav-link" href="contact.html">Contact Us</a>
-                                                                                </li>-->
                                         <li class="nav-item">
-                                            <a class="nav-link" href="login.jsp">Sign In/Sign Up</a>
+                                            <a class="nav-link" href="gallery.jsp">Bộ sưu tập</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="login.jsp">Sign In/Sign UP</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -100,85 +97,121 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="title">
-                            <h2>Bộ sưu tập</h2>
+                            <h2>Sản phẩm nổi bật</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- gallery -->
-        <div  class="gallery">
+        <!-- our products -->
+        <div class="products">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-7">
                         <div class="titlepage">
-
-                            <span>Một số hình ảnh , hoạt động vui vẻ bên trong nông trại... </span>
+                            <h2>Đây là một số loại hoa quả và động vật mà chúng tôi có thể nuôi được..</h2>
+                            <!--                     <span>Đây là một số loại hoa quả và động vật mà chúng tôi có thể nuôi được...
+                                                 </span>-->
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="gallery_img">
-                            <figure><img src="../images/gallery1.jpg" alt="#"/></figure>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div id="ho_bo" class="our_products">
+                            <div class="product">
+                                <figure><img src="../images/pro1.png" alt="#"/></figure>
+                            </div>
+                            <h3>Xoài cát Hòa Lộc</h3>
+                            <span></span>
+                            <p>Xoài cát Hòa Lộc là loại quả đặc sản nổi tiếng của vùng đồng bằng sông Cửu Long. Quả xoài có trọng lượng trung bình từ 350-450 g,
+                                hình dạng thuôn dài, khi chín vỏ có màu vàng nhạt, thịt quả màu vàng tươi, cấu trúc thịt chắc, mịn và ít xơ. </p>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="gallery_img">
-                            <figure><img src="../images/gallery2.jpg" alt="#"/></figure>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div id="ho_bo" class="our_products">
+                            <div class="product">
+                                <figure><img src="../images/pro3.png" alt="#"/></figure>
+                            </div>
+                            <h3>Cam Vinh</h3>
+                            <span></span>
+                            <p>Cam Vinh thường ra hoa và kết quả vào tháng 4 đến tháng 5 Âm lịch và cam chín vào khoảng tháng 9-10 âm lịch, 
+                                thời điểm này cam có hương vị và chất lượng tốt nhất, không mắc các loại bệnh ảnh hưởng đến màu sắc và chất lượng của quả Cam. </p>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="gallery_img">
-                            <figure><img src="../images/gallery31.png" alt="#"/></figure>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div id="ho_bo" class="our_products">
+                            <div class="product">
+                                <figure><img src="../images/pro3.jpg" alt="#"/></figure>
+                            </div>
+                            <h3>Dê núi</h3>
+                            <span></span>
+                            <p>Đây là loại dê được nuôi thả một cách tự nhiên trong nông trại,buổi sáng sẽ được đưa lên đồi,
+                                buổi tối sẽ được mang về chuồng trại để chăm sóc</p>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="gallery_img">
-                            <figure><img src="../images/gallery4.jpg" alt="#"/></figure>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="gallery_img">
-                            <figure><img src="../images/gallery5.jpg" alt="#"/></figure>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="gallery_img">
-                            <figure><img src="../images/gallery6.jpeg" alt="#"/></figure>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div id="ho_bo" class="our_products">
+                            <div class="product">
+                                <figure><img src="../images/pro4.jpg" alt="#"/></figure>
+                            </div>
+                            <h3>Gà</h3>
+                            <span></span>
+                            <p>Những chú gà ở đây chỉ dùng để lấy thịt ,chúng được nuôi theo hình thức chuồng trại 
+                                đảm bảo vệ sinh an toàn thực phẩm</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- end gallery -->
-        <
+        <!-- end our products -->
+        <!-- using -->
+        <!--      <div class="using">
+                 <div class="container-fluid">
+                    <div class="row d_flex">
+                       <div class="col-md-6">
+                          <div class="titlepage">
+                             <h2 >Lorem Ipsum using</h2>
+                             <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise</p>
+                             <a class="read_more white_bg" href="Javascript:void(0)"> Read More</a>
+                          </div>
+                       </div>
+                       <div class="col-md-5 offset-md-1 padding_right0">
+                          <div class="frout_img">
+                             <figure><img src="images/frout.png" alt="#"/></figure>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>-->
+        <!-- end using -->
+        <!-- end our products -->
+
         <!--  footer -->
         <footer>
             <div class="footer">
                 <div class="container">
-                    <!--                    <div class="row">
-                                            <div class="col-md-8 offset-md-2">
-                                                <div class="newslatter">
-                                                    <h4>Subscribe Our Newsletter</h4>
-                                                    <form class="bottom_form">
-                                                        <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
-                                                        <button class="sub_btn">subscribe</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class=" border_top1"></div>
-                                            </div>
-                                        </div>-->
+                    <!--               <div class="row">
+                                      <div class="col-md-8 offset-md-2">
+                                         <div class="newslatter">
+                                            <h4>Subscribe Our Newsletter</h4>
+                                            <form class="bottom_form">
+                                               <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
+                                               <button class="sub_btn">subscribe</button>
+                                            </form>
+                                         </div>
+                                      </div>
+                                      <div class="col-sm-12">
+                                         <div class=" border_top1"></div>
+                                      </div>
+                                   </div>-->
                     <div class="row">
                         <div class="col-md-4">
                             <h3>menu LINKS</h3>
                             <ul class="link_menu">
                                 <li><a href="home.jsp">Trang chủ</a></li>
-                                <li><a href="product.jsp">Sản phẩm nổi bật</a></li>
-                                <li><a href="#">Bộ sưu tập</a></li>
+                                <li><a href="#">Sản phẩm nổi bật</a></li>
+                                <li><a href="gallery.jsp">Bộ sưu tập</a></li>
                             </ul>
                         </div>
                         <div class=" col-md-3">
@@ -190,9 +223,9 @@
                         <div class="col-lg-3 offset-mdlg-2     col-md-4 offset-md-1">
                             <h3>Contact </h3>
                             <ul class="conta">
-                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> Location</li>
+                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ</li>
                                 <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> minh1812001@gmail.com</a></li>
-                                <li><i class="fa fa-mobile" aria-hidden="true"></i> Call : +84 343383101</li>
+                                <li><i class="fa fa-mobile" aria-hidden="true"></i> Phone : +84 343383101</li>
                             </ul>
                         </div>
                     </div>

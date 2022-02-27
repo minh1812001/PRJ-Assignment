@@ -53,7 +53,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo">
-                              <a href="home"><img src="../images/logo.png" alt="#" /></a>
+                               <a href="home.jsp"><img src="../images/logo.png" alt="#" /></a>
                            </div>
                         </div>
                      </div>
@@ -72,10 +72,10 @@
                                  <a class="nav-link" href="about.html">About</a>
                               </li>-->
                               <li class="nav-item">
-                                 <a class="nav-link" href="../product.html">Một số sản phẩm</a>
+                                  <a class="nav-link" href="product.jsp">Một số sản phẩm</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="../gallery.html">Bộ sưu tập</a>
+                                  <a class="nav-link" href="gallery.jsp">Bộ sưu tập</a>
                               </li>
 <!--                              <li class="nav-item">
                                  <a class="nav-link" href="contact.html">Contact Us</a>
@@ -323,8 +323,8 @@
                      <h3>menu LINKS</h3>
                      <ul class="link_menu">
                         <li><a href="#">Trang chủ</a></li>
-                        <li><a href="../product.html">Sản phẩm nổi bật</a></li>
-                        <li><a href="../gallery.html">Bộ sưu tập</a></li>
+                        <li><a href="product.jsp">Sản phẩm nổi bật</a></li>
+                        <li><a href="gallery.jsp">Bộ sưu tập</a></li>
 
                      </ul>
                   </div>
