@@ -225,32 +225,32 @@
              <div class="row">
                  <div class="col-md-4 col-sm-6">
                      <div class="gallery_img">
-                         <figure><img src="../images/gallery1.jpg" alt="#"/></figure>
+                         <figure><img src="/images/gallery1.jpg" alt="#"/></figure>
                      </div>
                  </div>
                  <div class="col-md-4 col-sm-6">
                      <div class="gallery_img">
-                         <figure><img src="../images/gallery2.jpg" alt="#"/></figure>
+                         <figure><img src="images/gallery2.jpg" alt="#"/></figure>
                      </div>
                  </div>
                  <div class="col-md-4 col-sm-6">
                      <div class="gallery_img">
-                         <figure><img src="../images/gallery31.png" alt="#"/></figure>
+                         <figure><img src="images/gallery31.png" alt="#"/></figure>
                      </div>
                  </div>
                  <div class="col-md-4 col-sm-6">
                      <div class="gallery_img">
-                         <figure><img src="../images/gallery4.jpg" alt="#"/></figure>
+                         <figure><img src="images/gallery4.jpg" alt="#"/></figure>
                      </div>
                  </div>
                  <div class="col-md-4 col-sm-6">
                      <div class="gallery_img">
-                         <figure><img src="../images/gallery5.jpg" alt="#"/></figure>
+                         <figure><img src="images/gallery5.jpg" alt="#"/></figure>
                      </div>
                  </div>
                  <div class="col-md-4 col-sm-6">
                      <div class="gallery_img">
-                         <figure><img src="../images/gallery6.jpeg" alt="#"/></figure>
+                         <figure><img src="images/gallery6.jpeg" alt="#"/></figure>
                      </div>
                  </div>
              </div>
