@@ -34,7 +34,7 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+     
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -49,6 +49,10 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        /*
+        if co cookies thi getRequestDispatcher den home vs acc trong cookies else getRequestDispatcher login
+        */
+        
         Cookie cookies[] = request.getCookies();
 
         String user = null;
@@ -71,7 +75,7 @@ public class LoginController extends HttpServlet {
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("acc", acc);
-            response.sendRedirect("index1.html");
+            response.sendRedirect("view/home.jsp");
         }
     }
 

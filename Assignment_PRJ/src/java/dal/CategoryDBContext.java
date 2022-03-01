@@ -27,7 +27,9 @@ public class CategoryDBContext extends DBContext{
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Category c = new Category(rs.getInt(1), rs.getString(2));
+                Category c = new Category();
+                c.setId(rs.getInt("id"));
+                c.setName(rs.getString("name"));
                 categories.add(c);
             }
 

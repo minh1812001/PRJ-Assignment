@@ -20,15 +20,15 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- bootstrap css -->
-      <link rel="stylesheet" href="../css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
       <!-- style css -->
-      <link rel="stylesheet" href="../css/style.css">
+      <link rel="stylesheet" href="css/style.css">
       <!-- Responsive-->
-      <link rel="stylesheet" href="../css/responsive.css">
+      <link rel="stylesheet" href="css/responsive.css">
       <!-- fevicon -->
-      <link rel="icon" href="../images/fevicon.png" type="image/gif" />
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
       <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
@@ -40,7 +40,7 @@
    <body class="main-layout">
       <!-- loader  -->
       <div class="loader_bg">
-         <div class="loader"><img src="../images/loading.gif" alt="#"/></div>
+         <div class="loader"><img src="images/loading.gif" alt="#"/></div>
       </div>
       <!-- end loader -->
       <!-- header -->
@@ -53,7 +53,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo">
-                               <a href="home.jsp"><img src="../images/logo.png" alt="#" /></a>
+                               <a href="view/home.jsp"><img src="images/logo.png" alt="#" /></a>
                            </div>
                         </div>
                      </div>
@@ -66,7 +66,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto">
                               <li class="nav-item active">
-                                  <a class="nav-link" href="home.jsp">Trang chủ</a>
+                                  <a class="nav-link" href="#">Trang chủ</a>
                               </li>
 <!--                              <li class="nav-item">
                                  <a class="nav-link" href="about.html">About</a>
@@ -81,7 +81,7 @@
                                  <a class="nav-link" href="contact.html">Contact Us</a>
                               </li>-->
                               <li class="nav-item">
-                                  <a class="nav-link" href="login.jsp">Sign In/Sign Up</a>
+                                  <a class="nav-link" href="view/login.jsp">Sign In/Sign Up</a>
                               </li>
                            </ul>
                         </div>
@@ -146,7 +146,7 @@
                <div class="col-lg-3 col-md-6 col-sm-6">
                   <div id="ho_bo" class="our_products">
                      <div class="product">
-                        <figure><img src="../images/pro1.png" alt="#"/></figure>
+                        <figure><img src="images/pro1.png" alt="#"/></figure>
                      </div>
                      <h3>Xoài cát Hòa Lộc</h3>
                      <span></span>
@@ -157,7 +157,7 @@
                <div class="col-lg-3 col-md-6 col-sm-6">
                   <div id="ho_bo" class="our_products">
                      <div class="product">
-                         <figure><img src="../images/pro3.png" alt="#"/></figure>
+                         <figure><img src="images/pro3.png" alt="#"/></figure>
                      </div>
                      <h3>Cam Vinh</h3>
                      <span></span>
@@ -168,7 +168,7 @@
                <div class="col-lg-3 col-md-6 col-sm-6">
                   <div id="ho_bo" class="our_products">
                      <div class="product">
-                         <figure><img src="../images/pro3.jpg" alt="#"/></figure>
+                         <figure><img src="images/pro3.jpg" alt="#"/></figure>
                      </div>
                      <h3>Dê núi</h3>
                      <span></span>
@@ -179,7 +179,7 @@
                <div class="col-lg-3 col-md-6 col-sm-6">
                   <div id="ho_bo" class="our_products">
                      <div class="product">
-                         <figure><img src="../images/pro4.jpg" alt="#"/></figure>
+                         <figure><img src="images/pro4.jpg" alt="#"/></figure>
                      </div>
                      <h3>Gà</h3>
                      <span></span>
@@ -357,11 +357,11 @@
       </footer>
       <!-- end footer -->
       <!-- Javascript files-->
-      <script src="../js/jquery.min.js"></script>
-      <script src="../js/bootstrap.bundle.min.js"></script>
-      <script src="../js/jquery-3.0.0.min.js"></script>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
       <!-- sidebar -->
-      <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="../js/custom.js"></script>
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
    </body>
 </html>
