@@ -48,8 +48,8 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex mx-auto">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form action="search" class="d-flex mx-auto">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                     <form class="d-flex my-2">
@@ -80,14 +80,29 @@
                     <div class="col-md-3 mb-5">
                         <h3>List Categories</h3>
                         <ul class="list-group">
-                            <c:forEach items="${listCategories}" var="C">
+                            <c:forEach items="${sessionScope.listCategories}" var="C">
                                 <li class="list-group-item"><a href="filter-category?categoryId=${C.id}">${C.name}</a></li>
                                 </c:forEach>
                         </ul>
                     </div>
                     <div class="col-md-9">
                         <h3>List Products</h3>
-
+                        <c:choose>
+                            <c:when test="${listProducts != null || listProducts.size() != 0}">
+                                                               <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" href="shop?page=${page-1}">Previous</a></li>
+                                            <c:forEach begin="1" end="${totalPage}" var="i">
+                                            <li class="page-item ${i == page?"active":""}"><a class="page-link" href="shop?page=${i}">${i}</a></li>
+                                            </c:forEach>
+                                        <li class="page-item"><a class="page-link" href="shope?page=${page+1}">Next</a></li>
+                                    </ul>
+                                </nav>
+                            </c:when>
+                            <c:otherwise>
+                                   Not Found
+                            </c:otherwise>
+                        </c:choose>
 
                         <div
                             class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 justify-content-center"
@@ -153,22 +168,7 @@
                                                         <li class="page-item"><a class="page-link" href="#">Next</a></li>
                                                     </ul>
                                                 </nav>-->
-                        <c:choose>
-                            <c:when test="${listProducts==null || listProducts.size()==0}">
-                                Not founds
-                            </c:when>
-                            <c:otherwise>
-                                <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="shop?page=${page-1}">Previous</a></li>
-                                            <c:forEach begin="1" end="${totalPage}" var="i">
-                                            <li class="page-item ${i == page?"active":""}"><a class="page-link" href="shop?page=${i}">${i}</a></li>
-                                            </c:forEach>
-                                        <li class="page-item"><a class="page-link" href="shope?page=${page+1}">Next</a></li>
-                                    </ul>
-                                </nav>
-                            </c:otherwise>
-                        </c:choose>
+
                     </div>
                 </div>
             </div>

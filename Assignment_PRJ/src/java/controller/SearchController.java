@@ -5,23 +5,21 @@
  */
 package controller;
 
-import dal.CategoryDBContext;
 import dal.ProductDBContext;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Category;
 import model.Product;
 
 /**
  *
  * @author Minh-PC
  */
-public class ShopController extends HttpServlet {
+public class SearchController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,30 +33,15 @@ public class ShopController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        final int PAGE_SIZE = 6;
-        ArrayList<Category> listCategories = new CategoryDBContext().getAllCategory();
-        HttpSession session = request.getSession();
-        session.setAttribute("listCategories", listCategories);
-
-        int page = 1;
-        String pageStr = request.getParameter("page");
-        if (pageStr != null) {
-            page = Integer.parseInt(pageStr);
+         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            String keyword = request.getParameter("keyword");
+            
+            ArrayList<Product> listProducts = new ProductDBContext().search(keyword);
+            
+            request.setAttribute("listProducts", listProducts);
+            request.getRequestDispatcher("view/shop.jsp").forward(request, response);
         }
-
-        ProductDBContext dbProduct = new ProductDBContext();
-        ArrayList<Product> listProducts = dbProduct.getProductsWithPagging(page, PAGE_SIZE);
-        session.setAttribute("listProducts", listProducts);
-        int totalProducts = dbProduct.getTotalProducts();
-        int totalPage = totalProducts / PAGE_SIZE;
-        if (totalProducts % PAGE_SIZE != 0) {
-            totalPage += 1;
-        }
-        request.setAttribute("page", page);
-        request.setAttribute("totalPage", totalPage);
-        session.setAttribute("urlHistory", "shop");
-
-        request.getRequestDispatcher("view/shop.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
