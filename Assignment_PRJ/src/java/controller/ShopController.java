@@ -34,30 +34,26 @@ public class ShopController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        final int PAGE_SIZE = 3;
         response.setContentType("text/html;charset=UTF-8");
-        final int PAGE_SIZE = 6;
         ArrayList<Category> listCategories = new CategoryDBContext().getAllCategory();
         HttpSession session = request.getSession();
         session.setAttribute("listCategories", listCategories);
-
         int page = 1;
         String pageStr = request.getParameter("page");
         if (pageStr != null) {
             page = Integer.parseInt(pageStr);
         }
-
         ProductDBContext dbProduct = new ProductDBContext();
         ArrayList<Product> listProducts = dbProduct.getProductsWithPagging(page, PAGE_SIZE);
-        session.setAttribute("listProducts", listProducts);
-        int totalProducts = dbProduct.getTotalProducts();
-        int totalPage = totalProducts / PAGE_SIZE;
-        if (totalProducts % PAGE_SIZE != 0) {
-            totalPage += 1;
+        int totalProucts = dbProduct.getTotalProducts();
+        int totalPage = totalProucts/PAGE_SIZE;
+        if(totalProucts%PAGE_SIZE != 0){
+            totalPage +=1;
         }
         request.setAttribute("page", page);
-        request.setAttribute("totalPage", totalPage);
-        session.setAttribute("urlHistory", "shop");
-
+        request.setAttribute("totalPage",totalPage);
+        session.setAttribute("listProducts", listProducts);
         request.getRequestDispatcher("view/shop.jsp").forward(request, response);
     }
 
