@@ -54,6 +54,7 @@ public class ShopController extends HttpServlet {
         request.setAttribute("page", page);
         request.setAttribute("totalPage",totalPage);
         session.setAttribute("listProducts", listProducts);
+        session.setAttribute("UrlHistory", "shop");
         request.getRequestDispatcher("view/shop.jsp").forward(request, response);
     }
 

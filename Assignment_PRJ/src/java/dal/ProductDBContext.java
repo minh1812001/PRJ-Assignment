@@ -152,7 +152,7 @@ public class ProductDBContext extends DBContext {
     }
 
     public Product getProductById(int productId) {
-        
+
         try {
             String sql = "select *  from Product where id = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
@@ -173,6 +173,30 @@ public class ProductDBContext extends DBContext {
             }
 
         } catch (SQLException ex) {
+            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+// su dung tool 
+    public Product getProductById1(int productId) {
+        try {
+            String sql = "select *  from Product where id = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, productId);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Product product = Product.builder()
+                        .id(rs.getInt(1))
+                        .name(rs.getString(2))
+                        .quantity(rs.getInt(3))
+                        .price(rs.getDouble(4))
+                        .description(rs.getString(5))
+                        .imageURL(rs.getString(6))
+                        .created_date(rs.getDate(7))
+                        .category_id(rs.getInt(8)).build();
+                return product;
+            }
+        } catch (Exception ex) {
             Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;

@@ -39,14 +39,14 @@
                         </div>
                         <p class="lead">${product.description}</p>
                         <div class="d-flex">
-                            <button class="btn btn-outline-success flex-shrink-0" type="button">
+                            <a href="add-to-cart?productId=${product.id}" class="btn btn-outline-success flex-shrink-0" type="button">
                                 <i class="bi-cart-fill me-1"></i>
                                 Add to cart
-                            </button>
-                            <button class="btn btn-outline-success flex-shrink-0 ms-5" type="button">
+                            </a>
+                            <a class="btn btn-outline-success flex-shrink-0 ms-5" type="button">
                                 <i class="bi-cart-fill me-1"></i>
                                 Buy Now
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

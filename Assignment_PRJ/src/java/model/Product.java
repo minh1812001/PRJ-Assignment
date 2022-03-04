@@ -6,13 +6,21 @@
 package model;
 
 import java.sql.Date;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
  * @author Minh-PC
  */
-
+@Builder
+@Getter
+@Setter
+@ToString
 public class Product {
+
 
     private int id;
     private int category_id;
@@ -101,9 +109,5 @@ public class Product {
         this.created_date = created_date;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" + "id=" + id + ", category_id=" + category_id + ", name=" + name + ", quantity=" + quantity + ", price=" + price + ", description=" + description + ", imageURL=" + imageURL + ", created_date=" + created_date + '}';
-    }
 
 }
