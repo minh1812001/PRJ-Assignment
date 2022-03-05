@@ -27,13 +27,12 @@
         <%@include file="../components/narbarComponents.jsp" %>
         <!-- Product section-->
         <section class="py-5">
-            <div class="container" style="min-height: 500px">
-                <c:choose>
-                    <c:when test="${sessionScope.carts.size()==0 || sessionScope.carts.size()==null}">
-                        <h1>List cart is Empty</h1>
-                    </c:when>
-                    <c:otherwise>
-                        <h3>List Products</h3>
+
+            <div class="container" style="min-height: 500px" >
+                <h2>Thanh toán</h2>
+                <div    class="row">
+
+                    <div class="col-md-8" style="border: 1px solid #ccc; border-radius: 5px;padding: 1rem"> <h3>List Products</h3>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -60,14 +59,31 @@
                                     <td><a href="delete-cart?productId=${c.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Xóa</a></td>
                                     </tr>
                                 </form>
-
                             </c:forEach>
                             </tbody>
                         </table>
-                        <h3>Tổng tiền: $${totalMoney}</h3>
-                        <a href="checkout" class="btn btn-outline-success w-20">Thanh toán</a>
-                    </c:otherwise>
-                </c:choose>
+                        <h3>Tổng tiền: $${totalMoney}</h3></div>
+                    <div class="col-md-4"style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem">
+                        <h3>Thông tin người mua</h3>
+                        <form>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </section>
         <%@include file="../components/footerCompomemts.jsp" %>
