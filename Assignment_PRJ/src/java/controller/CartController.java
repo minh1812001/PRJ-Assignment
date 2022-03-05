@@ -37,10 +37,18 @@ public class CartController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             HttpSession session = request.getSession();
-            Map<Integer,Cart> carts = (Map<Integer,Cart>) session.getAttribute("carts");
-            if(carts == null){
+            Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
+            if (carts == null) {
                 carts = new LinkedHashMap<>();
             }
+            // total money 
+            double totalMoney = 0;
+            for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
+                Integer productId = entry.getKey();
+                Cart cart = entry.getValue();
+                totalMoney += cart.getQuantity() * cart.getProduct().getPrice();
+            }
+            request.setAttribute("totalMoney", totalMoney);
             request.setAttribute("carts", carts);
             request.getRequestDispatcher("view/carts.jsp").forward(request, response);
         }

@@ -47,12 +47,12 @@ public class ShopController extends HttpServlet {
         ProductDBContext dbProduct = new ProductDBContext();
         ArrayList<Product> listProducts = dbProduct.getProductsWithPagging(page, PAGE_SIZE);
         int totalProucts = dbProduct.getTotalProducts();
-        int totalPage = totalProucts/PAGE_SIZE;
-        if(totalProucts%PAGE_SIZE != 0){
-            totalPage +=1;
+        int totalPage = totalProucts / PAGE_SIZE;
+        if (totalProucts % PAGE_SIZE != 0) {
+            totalPage += 1;
         }
         request.setAttribute("page", page);
-        request.setAttribute("totalPage",totalPage);
+        request.setAttribute("totalPage", totalPage);
         session.setAttribute("listProducts", listProducts);
         session.setAttribute("UrlHistory", "shop");
         request.getRequestDispatcher("view/shop.jsp").forward(request, response);

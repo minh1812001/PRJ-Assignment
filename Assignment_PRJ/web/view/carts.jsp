@@ -28,35 +28,42 @@
         <!-- Product section-->
         <section class="py-5">
             <div class="container" >
-                <h3>List Products</h3>
-                <table class="table" style="min-height: 1000px">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">total</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${carts}" var="c">
-                            <tr>
-                                <th scope="row">${c.value.product.id}</th>
-                                <td><img src="${c.value.product.imageURL}" width="50"/></td>
-                                <td>${c.value.product.name}</td>
-                                <td>${c.value.product.price}</td>
-                                <td>${c.value.product.quantity}</td>
-                                <td>${c.value.product.quantity*c.value.product.price}</td>
-                                <td>Delete</td>
+                <c:choose>
+                    <c:when test="${sessionScope.carts.size()==0 || sessionScope.carts.size()==null}">
+                        <h1>List cart is Empty</h1>
+                    </c:when>
+                    <c:otherwise>
+                        <h3>List Products</h3>
+                        <table class="table" style="min-height: 1000px">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${carts}" var="c">
+                                    <tr>
+                                        <th scope="row">${c.value.product.id}</th>
+                                        <td><img src="${c.value.product.imageURL}" width="50"/></td>
+                                        <td>${c.value.product.name}</td>
+                                        <td>${c.value.product.price}</td>
+                                        <td>${c.value.quantity}</td>
+                                        <td>${c.value.quantity*c.value.product.price}</td>
+                                        <td><a href="delete-cart?productId=${c.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Delete</a></td>
 
-                            </tr>
-                        </c:forEach>
-
-                    </tbody>
-                </table>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                        <h3>Total Amount: $${totalMoney}</h3>                   
+                    </c:otherwise>
+                </c:choose>
             </div>
         </section>
 
