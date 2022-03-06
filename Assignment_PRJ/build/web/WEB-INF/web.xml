@@ -48,6 +48,14 @@
         <servlet-name>ThanksController</servlet-name>
         <servlet-class>controller.ThanksController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewProductController</servlet-name>
+        <servlet-class>controller.ViewProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewGalleryController</servlet-name>
+        <servlet-class>controller.ViewGalleryController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -95,6 +103,14 @@
     <servlet-mapping>
         <servlet-name>ThanksController</servlet-name>
         <url-pattern>/thanks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProductController</servlet-name>
+        <url-pattern>/product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewGalleryController</servlet-name>
+        <url-pattern>/gallery</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

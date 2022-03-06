@@ -43,50 +43,7 @@
          <div class="loader"><img src="images/loading.gif" alt="#"/></div>
       </div>
       <!-- end loader -->
-      <!-- header -->
-      <header class="full_bg">
-         <!-- header inner -->
-         <div class="header">
-            <div class="container-fluid">
-               <div class="row">
-                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                     <div class="full">
-                        <div class="center-desk">
-                           <div class="logo">
-                               <a href="view/home.jsp"><img src="images/logo.png" alt="#" /></a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarsExample04">
-                           <ul class="navbar-nav mr-auto">
-                              <li class="nav-item active">
-                                  <a class="nav-link" href="#">Trang chủ</a>
-                              </li>
-
-                              <li class="nav-item">
-                                  <a class="nav-link" href="product.jsp">Một số sản phẩm</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="gallery.jsp">Bộ sưu tập</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="view/login.jsp">Sign In/Sign Up</a>
-                              </li>
-                           </ul>
-                        </div>
-                     </nav>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- end header inner -->
-         <!-- end header -->
+      <%@include file="../components/homeheader.jsp" %>
          <!-- banner -->
          <section class="banner_main">
             <div class="container">
@@ -179,7 +136,7 @@
              <div class="row">
                  <div class="col-md-4 col-sm-6">
                      <div class="gallery_img">
-                         <figure><img src="/images/gallery1.jpg" alt="#"/></figure>
+                         <figure><img src="images/gallery1.jpg" alt="#"/></figure>
                      </div>
                  </div>
                  <div class="col-md-4 col-sm-6">
@@ -210,55 +167,6 @@
              </div>
          </div>
       </div>
-
-      <!--  footer -->
-      <footer>
-         <div class="footer">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-4">
-                     <h3>menu LINKS</h3>
-                     <ul class="link_menu">
-                        <li><a href="#">Trang chủ</a></li>
-                        <li><a href="product.jsp">Sản phẩm nổi bật</a></li>
-                        <li><a href="gallery.jsp">Bộ sưu tập</a></li>
-
-                     </ul>
-                  </div>
-                  <div class=" col-md-3">
-                     <h3>TOP food</h3>
-                     <p class="many">
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected
-                     </p>
-                  </div>
-                  <div class="col-lg-3 offset-mdlg-2     col-md-4 offset-md-1">
-                     <h3>Contact </h3>
-                     <ul class="conta">
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ</li>
-                        <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> Email: minh1812001@gmail.com</a></li>
-                        <li><i class="fa fa-mobile" aria-hidden="true"></i> Phone : +84 43383101</li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-            <div class="copyright">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-10 offset-md-1">
-                        <p>© 2019 All Rights Reserved. Design by <a href="https://html.design/"> Free Html Templates</a></p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
-      <!-- end footer -->
-      <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>
+      <%@include file="../components/homefooter.jsp" %>
    </body>
 </html>
