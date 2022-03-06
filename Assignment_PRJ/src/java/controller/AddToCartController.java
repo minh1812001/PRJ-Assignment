@@ -36,6 +36,8 @@ public class AddToCartController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         int productId = Integer.parseInt(request.getParameter("productId"));
         HttpSession session = request.getSession();
         // map productId |  cart 

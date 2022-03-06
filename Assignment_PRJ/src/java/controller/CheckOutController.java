@@ -5,6 +5,8 @@
  */
 package controller;
 
+import dal.OrderDBContext;
+import dal.OrderDetailDBContext;
 import dal.ShippingDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Cart;
+import model.Order;
 import model.Shipping;
 
 /**
@@ -35,9 +38,10 @@ public class CheckOutController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
-       HttpSession session = request.getSession();
+            HttpSession session = request.getSession();
             Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
             if (carts == null) {
                 carts = new LinkedHashMap<>();
@@ -80,16 +84,45 @@ public class CheckOutController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name =  request.getParameter("name");
-        String phone =  request.getParameter("phone");
-        String address =  request.getParameter("address");
-        String note =  request.getParameter("note");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        String note = request.getParameter("note");
         // shipping-order-orderdetai;
+        //-----------shipping
         Shipping s = new Shipping();
         s.setName(name);
         s.setPhone(phone);
         s.setAddress(address);
         int shippingId = new ShippingDBContext().CreateById(s);
+        //-------------------order
+        HttpSession session = request.getSession();
+        Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
+        if (carts == null) {
+            carts = new LinkedHashMap<>();
+        }
+
+        //tinh tong tien
+        double totalPrice = 0;
+        for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
+            Integer productId = entry.getKey();
+            Cart cart = entry.getValue();
+
+            totalPrice += cart.getQuantity() * cart.getProduct().getPrice();
+
+        }
+        Order o = new Order();
+        o.setUser_id(1);
+        o.setTotalPrice(totalPrice);
+        o.setNote(note);
+        o.setShipping_id(shippingId);
+        int orderId = new OrderDBContext().CreateById(o);
+        //------------orderdetail
+        new OrderDetailDBContext().SaveCart(orderId,carts);
+        session.removeAttribute("carts");
+        response.sendRedirect("Thanks");
     }
 
     /**

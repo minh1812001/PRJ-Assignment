@@ -33,7 +33,8 @@ public class CategoryDBContext extends DBContext{
                 categories.add(c);
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException exception) {
+            
         }
         return categories;
         
