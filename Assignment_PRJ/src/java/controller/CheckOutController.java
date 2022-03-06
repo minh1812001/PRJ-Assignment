@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dal.ShippingDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedHashMap;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Cart;
+import model.Shipping;
 
 /**
  *
@@ -78,7 +80,16 @@ public class CheckOutController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String name =  request.getParameter("name");
+        String phone =  request.getParameter("phone");
+        String address =  request.getParameter("address");
+        String note =  request.getParameter("note");
+        // shipping-order-orderdetai;
+        Shipping s = new Shipping();
+        s.setName(name);
+        s.setPhone(phone);
+        s.setAddress(address);
+        int shippingId = new ShippingDBContext().CreateById(s);
     }
 
     /**

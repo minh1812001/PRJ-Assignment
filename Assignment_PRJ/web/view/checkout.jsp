@@ -42,44 +42,44 @@
                                     <th scope="col">Giá</th>
                                     <th scope="col">Số lượng</th>
                                     <th scope="col">Tổng</th>
-                                    <th scope="col">Action</th>
+
                                 </tr>
                             </thead>
                             <tbody>
                                 <c:forEach items="${carts}" var="c">
-                                <form action="update-quantity">
                                     <tr>
-                                    <input type="hidden" name="productId" value="${c.value.product.id}"/>
-                                    <th scope="row">${c.value.product.id}</th>
-                                    <td><img src="${c.value.product.imageURL}" width="50"/></td>
-                                    <td>${c.value.product.name}</td>
-                                    <td>${c.value.product.price}</td>
-                                    <td><input onchange="this.form.submit()" type="number" name="quantity" value="${c.value.quantity}"/></td>
-                                    <td>${c.value.quantity*c.value.product.price}</td>
-                                    <td><a href="delete-cart?productId=${c.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Xóa</a></td>
-                                    </tr>
-                                </form>
+                                <input type="hidden" name="productId" value="${c.value.product.id}"/>
+                                <th scope="row">${c.value.product.id}</th>
+                                <td><img src="${c.value.product.imageURL}" width="50"/></td>
+                                <td>${c.value.product.name}</td>
+                                <td>${c.value.product.price}</td>
+                                <td>${c.value.quantity}</td>
+                                <td>${c.value.quantity*c.value.product.price}</td>
+                                </tr>
+                                </form
                             </c:forEach>
                             </tbody>
                         </table>
                         <h3>Tổng tiền: $${totalMoney}</h3></div>
                     <div class="col-md-4"style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem">
                         <h3>Thông tin người mua</h3>
-                        <form>
+                        <form action="checkout" method="POST">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                <label for="name" class="form-label">Email address</label>
+                                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="text" class="form-control" id="phone" name="phone" aria-describedby="emailHelp">
+                            </div> <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp">
+                                <div class="mb-3">
+                                    <label for="note" class="form-label">Note</label>
+                                    <textarea class="form-control" id="note" name="note" rows="3"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Send</button>
                         </form>
                     </div>
                 </div>
