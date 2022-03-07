@@ -42,7 +42,8 @@ public class UserDBContext extends DBContext{
                 list.add(user);
             }
             return list;
-        } catch (SQLException e) {
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
@@ -74,7 +75,8 @@ public class UserDBContext extends DBContext{
                 list.add(acc);
             }
             return list;
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
 
         }
         return list;
