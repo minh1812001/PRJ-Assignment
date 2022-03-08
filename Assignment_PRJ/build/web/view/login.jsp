@@ -44,20 +44,18 @@
 					Sign In
 				</span>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-					<input class="input100" type="text" name="username" placeholder="username or email">
+				<div for="username" class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
+                                    <input class="input100" type="text" id="username" name="user" placeholder="username or email">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="password" placeholder="password">
+				<div for="password" class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
+                                    <input class="input100" type="password" id="password" name="pass" placeholder="password">
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
-						Sign In
-					</button>
+                            <div  class="container-login100-form-btn">
+                                <button type="submit" class="login100-form-btn">Sign In</button>
 				</div>
 
 				<div class="text-center p-t-57 p-b-20">

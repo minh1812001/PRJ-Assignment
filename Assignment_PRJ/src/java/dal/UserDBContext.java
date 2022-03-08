@@ -84,7 +84,7 @@ public class UserDBContext extends DBContext{
 
     public User checkLogin(String username, String password) {
         try {
-            String sql = "SELECT id, [username], password, role_id, email FROM [User] WHERE [username] = ? AND password = ?";
+            String sql = "SELECT id, [username], password, role_id, email,full_name FROM [User] WHERE [username] = ? AND password = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
             stm.setString(2, password);
@@ -96,6 +96,7 @@ public class UserDBContext extends DBContext{
                 account.setPassword(rs.getString("password"));
                 account.setRole_id(rs.getInt("role_id"));
                 account.setEmail(rs.getString("email"));
+                account.setFull_name(rs.getString("full_name"));
                 return account;
             }
         } catch (SQLException ex) {
@@ -132,6 +133,7 @@ public class UserDBContext extends DBContext{
                 username.setUsername(rs.getString("username"));
                 username.setPassword(rs.getString("password"));
                 username.setEmail(rs.getString("email"));
+                username.setFull_name(rs.getString("full_name"));
                 return username;
             }
         } catch (SQLException ex) {
@@ -306,8 +308,7 @@ public class UserDBContext extends DBContext{
     }
 
     public static void main(String[] args) {
-
-        //System.out.println(new UserDAO().insertAll(new User(2, "hieu19", "123", "c9nguyenquanghieu@gmail.com", "0342217180", "hieu ct", Date.valueOf("2000-01-01"), true, "hihi", Date.valueOf("2000-01-01"))));
-        System.out.println(new UserDBContext().getUserByUserId(44));
+        
+        System.out.println(new UserDBContext().checkLogin("minh","123"));
     }
 }

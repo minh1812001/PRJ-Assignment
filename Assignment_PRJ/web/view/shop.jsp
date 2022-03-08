@@ -10,30 +10,45 @@
 <html lang="en">
 
     <head>
+         <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>TM Farm</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Shop Homepage - Start Bootstrap Template</title>
-        <!-- Favicon-->
+<!--         Favicon-->
         <link rel="icon" type="image/x-icon" href="startbootstrap-shop-homepage-gh-pages/assets/favicon.ico" />
-        <!-- Bootstrap icons-->
+         Bootstrap icons
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="startbootstrap-shop-homepage-gh-pages/css/styles.css" rel="stylesheet" />
     </head>
 
     <body>
-        <%@include file="../components/narbarComponents.jsp" %>
-        <!-- Header-->
-        <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Shop in style</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
-                </div>
-            </div>
-        </header>
+        <%@include file="../components/narbarComponents_1.jsp" %>
         <!-- Section-->
         <!-- Section-->
         <section class="py-5">
@@ -50,7 +65,7 @@
                     <div class="col-md-9">
                         <h3>List Products</h3>
                         <c:choose>
-                            <c:when test="${listProducts != null || listProducts.size() != 0}">
+                            <c:when test="${listProducts == null || listProducts.size() == 0}">
                                 Not Found
                             </c:when>
                             <c:otherwise>
@@ -58,9 +73,9 @@
                                     <ul class="pagination">
                                         <li class="page-item"><a class="page-link" href="shop?page=${page-1}">Previous</a></li>
                                             <c:forEach begin="1" end="${totalPage}" var="i">
-                                            <li class="page-item ${i == page?"active":""}"><a class="page-link" href="shop?page=${i}">${i}</a></li>
+                                            <li class="page-item ${i==page?"active":""}"><a class="page-link" href="shop?page=${i}">${i}</a></li>
                                             </c:forEach>
-                                        <li class="page-item"><a class="page-link" href="shope?page=${page+1}">Next</a></li>
+                                        <li class="page-item"><a class="page-link" href="shop?page=${page+1}">Next</a></li>
                                     </ul>
                                 </nav>
                             </c:otherwise>
@@ -69,7 +84,6 @@
                         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 justify-content-center">
                             <c:forEach items="${listProducts}" var="P">
                                 <div class="col mb-5">
-                                    ${P.id}
                                     <div class="card h-100">
                                         <!-- Sale badge-->
                                         <div
@@ -134,7 +148,7 @@
                 </div>
             </div>
         </section>
-                                <%@include file="../components/footerCompomemts.jsp" %>
+        <%@include file="../components/footerCompomemts.jsp" %>
     </body>
 
 </html>

@@ -8,8 +8,9 @@ package controller;
 import dal.UserDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +21,7 @@ import model.User;
  *
  * @author Minh-PC
  */
-public class LoginController extends HttpServlet {
+public class UserProfileController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,7 +35,18 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet UserProfileController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet UserProfileController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -49,34 +61,12 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        /*
-        if co cookies thi getRequestDispatcher den home vs acc trong cookies else getRequestDispatcher login
-         */
-
-        Cookie cookies[] = request.getCookies();
-
-        String user = null;
-        String pass = null;
-        if (cookies != null) {
-            for (Cookie cooky : cookies) {
-                if (cooky.getName().equals("user_cookie")) {
-                    user = cooky.getValue();
-                }
-                if (cooky.getName().equals("pass_cookie")) {
-                    request.setAttribute("password", cooky.getValue());
-                    pass = cooky.getValue();
-                }
-            }
-        }
+       HttpSession session = request.getSession();
+        User acc = (User) session.getAttribute("acc");
         UserDBContext db = new UserDBContext();
-        User acc = db.checkLogin(user, pass);
-        if (acc == null) {
-            request.getRequestDispatcher("view/login.jsp").forward(request, response);
-        } else {
-            HttpSession session = request.getSession();
-            session.setAttribute("acc", acc);
-            response.sendRedirect("home");
-        }
+        ArrayList<User> list = db.getAllUser(acc.getUsername());
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("view/profile.jsp").forward(request, response);
     }
 
     /**
@@ -90,36 +80,19 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("user");
-        String password = request.getParameter("pass");
-        String remember = request.getParameter("remember");
+         HttpSession session = request.getSession();
+        User acc = (User) session.getAttribute("acc");
+        String full_name = request.getParameter("full_name");
+        Date dob = Date.valueOf(request.getParameter("dob"));
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
+        Date c_date = Date.valueOf(request.getParameter("c_date").split(" ")[0]);
 
         UserDBContext db = new UserDBContext();
-        User acc = db.checkLogin(username, password);
-
-        if (db.checkUser(username) == null) {
-            request.setAttribute("w_name", "Username is not correct");
-            request.getRequestDispatcher("view/login.jsp").forward(request, response);
-        } else if (acc == null) {
-            request.setAttribute("wrong", "Password is not correct");
-            request.getRequestDispatcher("view/login.jsp").forward(request, response);
-        } else {
-            HttpSession session = request.getSession();
-            session.setAttribute("acc", acc);
-//            Cookie c = new Cookie("user_cookie", username);
-//            Cookie p = new Cookie("pass_cookie", password);
-//            if (remember != null) {
-//                c.setMaxAge(10);
-//                p.setMaxAge(10);
-//            } else {
-//                c.setMaxAge(0);
-//                p.setMaxAge(0);
-//            }
-//            response.addCookie(c);
-//            response.addCookie(p);
-
-            response.sendRedirect("home");
-        }
+        db.edit(email, phone, full_name, dob, gender, c_date, acc.getUsername());
+        response.sendRedirect("home");
+        response.getWriter().print("hello");
     }
 
     /**
