@@ -272,7 +272,8 @@ public class UserDBContext extends DBContext{
                 user.setCreated_date(rs.getDate("created_date"));
                 return user;
             }
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -298,7 +299,8 @@ public class UserDBContext extends DBContext{
                 user.setCreated_date(rs.getDate("created_date"));
                 return user;
             }
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
