@@ -6,8 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!-- header -->
-<header class="full_bg">
+
     <!-- header inner -->
     <div class="header">
         <div class="container-fluid">
@@ -66,5 +65,6 @@
             </div>
         </div>
     </div>
+  
     <!-- end header inner -->
     <!-- end header -->

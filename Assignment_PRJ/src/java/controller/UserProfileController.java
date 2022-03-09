@@ -23,32 +23,6 @@ import model.User;
  */
 public class UserProfileController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet UserProfileController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet UserProfileController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -61,10 +35,10 @@ public class UserProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         User acc = (User) session.getAttribute("acc");
-        UserDBContext db = new UserDBContext();
-        ArrayList<User> list = db.getAllUser(acc.getUsername());
+        UserDBContext udb = new UserDBContext();
+        ArrayList<User> list = udb.getAllUser();
         request.setAttribute("list", list);
         request.getRequestDispatcher("view/profile.jsp").forward(request, response);
     }
@@ -80,17 +54,17 @@ public class UserProfileController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         User acc = (User) session.getAttribute("acc");
         String full_name = request.getParameter("full_name");
         Date dob = Date.valueOf(request.getParameter("dob"));
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
-        Date c_date = Date.valueOf(request.getParameter("c_date").split(" ")[0]);
+      //  Date c_date = Date.valueOf(request.getParameter("c_date").split(" ")[0]);
 
-        UserDBContext db = new UserDBContext();
-        db.edit(email, phone, full_name, dob, gender, c_date, acc.getUsername());
+        UserDBContext udb = new UserDBContext();
+        udb.edit(email, phone, full_name, dob, gender, acc.getCreated_date(), acc.getUsername());
         response.sendRedirect("home");
         response.getWriter().print("hello");
     }

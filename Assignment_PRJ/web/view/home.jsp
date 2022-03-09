@@ -42,6 +42,7 @@
       <div class="loader_bg">
          <div class="loader"><img src="images/loading.gif" alt="#"/></div>
       </div>
+      <header class="full_bg">
       <!-- end loader -->
       <%@include file="../components/homeheader.jsp" %>
          <!-- banner -->

@@ -56,7 +56,6 @@ public class UserDBContext extends DBContext{
                     + "WHERE [username] = ? ";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
-
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 User acc = new User();
@@ -75,7 +74,7 @@ public class UserDBContext extends DBContext{
                 list.add(acc);
             }
             return list;
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
 
         }
@@ -309,6 +308,6 @@ public class UserDBContext extends DBContext{
 
     public static void main(String[] args) {
         
-        System.out.println(new UserDBContext().checkLogin("minh","123"));
+        System.out.println(new UserDBContext().getAllUser("minh"));
     }
 }

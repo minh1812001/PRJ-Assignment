@@ -43,7 +43,10 @@
             <div class="loader"><img src="images/loading.gif" alt="#"/></div>
         </div>
         <!-- end loader -->
-        <%@include file="../components/homeheader.jsp" %>
+        <header class="full_bg">
+             <%@include file="../components/homeheader.jsp" %>
+        </header>
+       
         <!-- end banner -->
         <div class="back_re">
             <div class="container">
