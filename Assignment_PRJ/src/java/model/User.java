@@ -24,7 +24,6 @@ public class User {
     private boolean gender;
     private String avatar;
     private Date created_date;
-
     public User() {
     }
 

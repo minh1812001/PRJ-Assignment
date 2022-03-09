@@ -36,10 +36,8 @@ public class UserProfileController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        User acc = (User) session.getAttribute("acc");
-        UserDBContext udb = new UserDBContext();
-        ArrayList<User> list = udb.getAllUser();
-        request.setAttribute("list", list);
+        User acc = (User) session.getAttribute("acc"); 
+       
         request.getRequestDispatcher("view/profile.jsp").forward(request, response);
     }
 

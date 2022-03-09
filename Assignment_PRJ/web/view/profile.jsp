@@ -98,9 +98,15 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-6">Tên người dùng: <input type="text" class="form-control" name="full_name" value="${sessionScope.acc.full_name}"  placeholder="Full name"  ></div>
-                            <div class="col-md-3">Giới tính: 
-                                <input type="radio" class="form-control" name="gender" value="male">Nam
+                            <div class="col-md-6">Giới tính:                            
+                                <c:if test="${sessionScope.acc.gender==true}">
+                                    <input type="radio" class="form-control" name="gender" value="male" checked="">Nam
                                 <input type="radio" class="form-control" name="gender" value="female">Nữ
+                                </c:if>
+                                <c:if test="${sessionScope.acc.gender==false}">
+                                    <input type="radio" class="form-control" name="gender" value="male" >Nam
+                                <input type="radio" class="form-control" name="gender" value="female"checked="">Nữ
+                                </c:if>
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -109,7 +115,7 @@
                             <div class="col-md-6">Liên hệ: <input type="text" class="form-control" name="phone" value="${sessionScope.acc.phone}"  placeholder="Phone number"></div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-6">Ngày Sinh<input type="text" class="form-control" name="dob" placeholder="Date of birth"
+                            <div class="col-md-6">Ngày Sinh<input type="date" class="form-control" name="dob" placeholder="Date of birth"
                                                                   value="${sessionScope.acc.dob}"></div>
                             <div class="col-md-6">Ngày tạo tài khoản<input type="date" class="form-control" value="${sessionScope.acc.created_date}"
                                                                            ></div>

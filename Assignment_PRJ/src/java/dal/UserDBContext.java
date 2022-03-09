@@ -5,11 +5,13 @@
  */
 package dal;
 
+import java.security.SecureRandom;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.User;
@@ -18,8 +20,9 @@ import model.User;
  *
  * @author Minh-PC
  */
-public class UserDBContext extends DBContext{
-      public ArrayList<User> getAllUser() {
+public class UserDBContext extends DBContext {
+
+    public ArrayList<User> getAllUser() {
         ArrayList<User> list = new ArrayList<>();
         try {
             String sql = "SELECT * FROM [User]";
@@ -83,7 +86,7 @@ public class UserDBContext extends DBContext{
 
     public User checkLogin(String username, String password) {
         try {
-            String sql = "SELECT id, [username], password, role_id, email,full_name FROM [User] WHERE [username] = ? AND password = ?";
+            String sql = "SELECT * FROM [User] WHERE [username] = ? AND password = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
             stm.setString(2, password);
@@ -93,8 +96,11 @@ public class UserDBContext extends DBContext{
                 account.setId(rs.getInt("id"));
                 account.setUsername(rs.getString("username"));
                 account.setPassword(rs.getString("password"));
+                account.setPhone(rs.getString("phone"));
                 account.setRole_id(rs.getInt("role_id"));
                 account.setEmail(rs.getString("email"));
+                account.setDob(rs.getDate("dob"));
+                account.setCreated_date(rs.getDate("created_date"));
                 account.setFull_name(rs.getString("full_name"));
                 return account;
             }
@@ -106,11 +112,12 @@ public class UserDBContext extends DBContext{
 
     //DAO for create new account
     //DAO for create new account
-    public void insert(String account, String password, String email, Date date) {
-        String sql = "INSERT INTO [User] (role_id, [username], password, [email], created_date) VALUES (2, ?, ?, ?,?)";
+    public void insert(String username, String password, String email, Date date) {
+        String sql = "INSERT INTO [User] (role_id, [username], password, [email], created_date) VALUES (1, ?, ?, ?,?)";
         try {
+            
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, account);
+            stm.setString(1, username);
             stm.setString(2, password);
             stm.setString(3, email);
             stm.setDate(4, date);
@@ -216,7 +223,7 @@ public class UserDBContext extends DBContext{
 
     public void apply(int id) {
         try {
-            String sql = "UPDATE [User] SET role_id = 3 WHERE ID = ?";
+            String sql = "UPDATE [User] SET role_id = 1 WHERE ID = ?";
             PreparedStatement stm = connection.prepareCall(sql);
             stm.setInt(1, id);
             stm.executeUpdate();
@@ -278,8 +285,8 @@ public class UserDBContext extends DBContext{
         }
         return null;
     }
-    
-     public User getUserByUserId(int id) {
+
+    public User getUserByUserId(int id) {
         try {
             String sql = "SELECT * FROM [User] WHERE [ID] = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
@@ -306,8 +313,26 @@ public class UserDBContext extends DBContext{
         return null;
     }
 
+    public String generateOTP() {
+        Random random = new Random();
+        String otp = String.valueOf(100000 + random.nextInt(999999));
+        return otp;
+    }
+
+    public String generateRandomPassword() {
+        final String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        SecureRandom random = new SecureRandom();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 8; i++) {
+            int randomIndex = random.nextInt(chars.length());
+            sb.append(chars.charAt(randomIndex));
+        }
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
-        
-        System.out.println(new UserDBContext().getAllUser("minh"));
+
+        System.out.println(new UserDBContext());
+       
     }
 }

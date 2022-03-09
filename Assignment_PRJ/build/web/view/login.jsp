@@ -66,16 +66,12 @@
 
 				<div class="flex-c p-b-112">
 					<a href="#" class="login100-social-item">
-						<i class="fa fa-facebook-f"></i>
-					</a>
-
-					<a href="#" class="login100-social-item">
                                             <img src="images/icons/icon-google.png" alt="GOOGLE">
 					</a>
 				</div>
 
 				<div class="text-center">
-					<a href="#" class="txt2 hov1">
+					<a href="/Assignment_PRJ/signup" class="txt2 hov1">
 						Sign Up
 					</a>
 				</div>
