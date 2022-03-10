@@ -38,7 +38,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Shop Homepage - Start Bootstrap Template</title>
+        <title>TM Shop</title>
 <!--         Favicon-->
         <link rel="icon" type="image/x-icon" href="startbootstrap-shop-homepage-gh-pages/assets/favicon.ico" />
          Bootstrap icons
@@ -95,7 +95,7 @@
                                         <!-- Product image-->
                                         <a href="detail?productId=${P.id}">
                                             <img class="card-img-top"
-                                                 src="${P.imageURL}"
+                                                 src="images/shop/${P.imageURL}"
                                                  alt="..."
                                                  />
                                         </a>

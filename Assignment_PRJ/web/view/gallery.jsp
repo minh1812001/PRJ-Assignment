@@ -44,9 +44,9 @@
         </div>
         <!-- end loader -->
         <header class="full_bg">
-             <%@include file="../components/homeheader.jsp" %>
+            <%@include file="../components/homeheader.jsp" %>
         </header>
-       
+
         <!-- end banner -->
         <div class="back_re">
             <div class="container">
@@ -79,12 +79,12 @@
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="gallery_img">
-                            <figure><img src="images/gallery2.jpg" alt="#"/></figure>
+                            <figure><img src="images/gallery2 (1).jpg" alt="#"/></figure>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="gallery_img">
-                            <figure><img src="images/gallery31.png" alt="#"/></figure>
+                            <figure><img src="images/gallery3.png" alt="#"/></figure>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
