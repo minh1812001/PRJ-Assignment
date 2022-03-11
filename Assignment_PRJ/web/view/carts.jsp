@@ -94,5 +94,5 @@ head>
                 </c:choose>
             </div>
         </section>
-        <%@include file="../components/footerCompomemts.jsp" %>
+        <%@include file="../components/homefooter.jsp" %>
 </html>

@@ -3,11 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/dal/UserDBContext.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/components/homeheader.jsp</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/components/homefooter.jsp</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/carts.jsp</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/SignUp.java</file>
             <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/product.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/detail.jsp</file>
             <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/shop.jsp</file>
             <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/home.jsp</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/signup.jsp</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/UserProfileController.java</file>
             <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/HomeController.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/FarmFilter.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/detail.jsp</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/components/footerCompomemts.jsp</file>
         </group>
     </open-files>
 </project-private>

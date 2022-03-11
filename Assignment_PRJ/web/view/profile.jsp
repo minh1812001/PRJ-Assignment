@@ -132,6 +132,6 @@
         <script type='text/javascript' src=''></script>
         <script type='text/Javascript'></script>
 
-        <%@include file="../components/homefooter.jsp" %>
+         <%@include file="../components/homefooter.jsp" %>
     </body>
 </html>

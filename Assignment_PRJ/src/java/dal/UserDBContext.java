@@ -203,7 +203,7 @@ public class UserDBContext extends DBContext {
     public int insertAll(User u) {
         int n = 0;
         try {
-            String sql = "INSERT INTO [user](role_id, [username], [password], [email], [phone], [full_name], [dob], [gender], [avatar], created_date) VALUES (4,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO [user](role_id, [username], [password], [email], [phone], [full_name], [dob], [gender], [avatar], created_date) VALUES (1,?,?,?,?,?,?,?,?,?)";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, u.getUsername());
             stm.setString(2, u.getPassword());
@@ -221,25 +221,25 @@ public class UserDBContext extends DBContext {
         return n;
     }
 
-    public void apply(int id) {
-        try {
-            String sql = "UPDATE [User] SET role_id = 1 WHERE ID = ?";
-            PreparedStatement stm = connection.prepareCall(sql);
-            stm.setInt(1, id);
-            stm.executeUpdate();
-        } catch (Exception e) {
-        }
-    }
+//    public void apply(int id) {
+//        try {
+//            String sql = "UPDATE [User] SET role_id = 1 WHERE ID = ?";
+//            PreparedStatement stm = connection.prepareCall(sql);
+//            stm.setInt(1, id);
+//            stm.executeUpdate();
+//        } catch (Exception e) {
+//        }
+//    }
 
-    public void deny(int id) {
-        try {
-            String sql = "DELETE from [User] WHERE ID = ?";
-            PreparedStatement stm = connection.prepareCall(sql);
-            stm.setInt(1, id);
-            stm.executeUpdate();
-        } catch (Exception e) {
-        }
-    }
+//    public void deny(int id) {
+//        try {
+//            String sql = "DELETE from [User] WHERE ID = ?";
+//            PreparedStatement stm = connection.prepareCall(sql);
+//            stm.setInt(1, id);
+//            stm.executeUpdate();
+//        } catch (Exception e) {
+//        }
+//    }
 
     public User checkEmail(String email) {
         String sql = "SELECT [username], password FROM [User] WHERE [email] = ?";

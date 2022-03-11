@@ -64,7 +64,7 @@ public class UserProfileController extends HttpServlet {
         UserDBContext udb = new UserDBContext();
         udb.edit(email, phone, full_name, dob, gender, acc.getCreated_date(), acc.getUsername());
         response.sendRedirect("home");
-        response.getWriter().print("hello");
+        
     }
 
     /**

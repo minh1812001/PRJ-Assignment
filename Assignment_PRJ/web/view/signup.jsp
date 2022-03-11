@@ -4,6 +4,7 @@
     Author     : Minh-PC
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,20 +50,28 @@
                     </div>
 
                     <div for="password" class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-                        <input class="input100" type="password" id="password" name="pass" placeholder="password">
+                        <input class="input100" type="text" id="password" name="pass" placeholder="password">
                         <span class="focus-input100"></span>
                     </div>
                      <div for="re-password" class="wrap-input100 validate-input m-b-25" data-validate = "Enter re-password">
-                        <input class="input100" type="password" id="password" name="re-pass" placeholder="re-password">
+                        <input class="input100" type="text" id="re-password" name="re-pass" placeholder="re-password">
                         <span class="focus-input100"></span>
                     </div>
                     <div for="email" class="wrap-input100 validate-input m-b-20" data-validate="Enter email">
-                        <input class="input100" type="text" id="username" name="email" placeholder="email">
+                        <input class="input100" type="text" id="email" name="email" placeholder="email">
                         <span class="focus-input100"></span>
                     </div>                           
 
                     <div  class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">Sign Up</button>
+                    </div>
+                    <div>
+                        <c:if test="${sessionScope.acc.username != null}">
+                            <h5 class="btn-outline-success">người dùng đã tồn tại</h5>
+                        </c:if>
+                          <c:if test="${sessionScope.acc.email != null}">
+                            <h5 class="btn-outline-success">email đã tồn tại</h5>
+                        </c:if>
                     </div>
 
                 </form>

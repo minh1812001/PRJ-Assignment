@@ -9,6 +9,7 @@ import dal.SendMail;
 import dal.UserDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.util.Calendar;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -67,23 +68,20 @@ public class SignUp extends HttpServlet {
         String password = request.getParameter("password");
         String re_password = request.getParameter("re-password");
         String email = request.getParameter("email");
+//        User a = new User();
+//        a.setUsername(username);
+//        a.setPassword(password);
+//        a.setEmail(email);
         UserDBContext db = new UserDBContext();
-
-        User a = new User();
-        a.setUsername(username);
-        a.setPassword(password);
-
         if (db.checkUser(username) != null) {
-            request.setAttribute("w_username", "Username " + username + " has already existed!");
-//            response.getWriter().println("Tai khoan " + username + " da ton tai!");
+           // request.setAttribute("w_username", "Username " + username + " đã tồn tại!");
             request.getRequestDispatcher("view/signup.jsp").forward(request, response);
 
         } else if (db.checkEmail(email) != null) {
-            request.setAttribute("w_email", "Email " + email + " has already existed!");
-//            response.getWriter().println("Tai khoan " + username + " da ton tai!");
+           // request.setAttribute("w_email", "Email " + email + " đã tồn tại!");
             request.getRequestDispatcher("view/signup.jsp").forward(request, response);
         } else {
-   
+
             if (!password.equals(re_password)) {
                 request.setAttribute("w_pass", "Re-password is incorrect! Please re-enter your password.");
                 request.getRequestDispatcher("view/signup.jsp").forward(request, response);
@@ -91,12 +89,13 @@ public class SignUp extends HttpServlet {
                 java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
                 db.insert(username, password, email, date);
                 HttpSession session = request.getSession();
-                User u = new User();
-                u.setUsername(username);
-                u.setPassword(password);
-                u.setEmail(email);
-                u.setCreated_date(date);
-                session.setAttribute("acc", u);
+                User acc = new User();
+                acc.setUsername(username);
+                acc.setPassword(password);
+                acc.setEmail(email);
+                acc.setCreated_date(date);
+                session.setAttribute("acc", acc);
+
                 response.sendRedirect("home");
             }
         }

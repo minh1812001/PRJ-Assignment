@@ -148,7 +148,7 @@
                 </div>
             </div>
         </section>
-        <%@include file="../components/footerCompomemts.jsp" %>
+         <%@include file="../components/homefooter.jsp" %>
     </body>
 
 </html>

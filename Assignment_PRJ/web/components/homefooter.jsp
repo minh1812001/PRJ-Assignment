@@ -17,7 +17,11 @@
                         <li><a href="/Assignment_PRJ/home">Trang chủ</a></li>
                         <li><a href="/Assignment_PRJ/product">Sản phẩm nổi bật</a></li>
                         <li><a href="/Assignment_PRJ/gallery">Bộ sưu tập</a></li>
-                        <li><a href="/Assignment_PRJ/login">Đăng nhập</a></li>
+                         <c:if test="${sessionScope.acc ==null}">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Assignment_PRJ/login">Đăng nhập</a>
+                                    </li>
+                                </c:if>
 
                      </ul>
                   </div>
@@ -32,7 +36,7 @@
                      <h3>Liên hệ</h3>
                      <ul class="conta">
                         <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> Email: minh1812001@gmail.com</a></li>
-                        <li><i class="fa fa-mobile" aria-hidden="true"></i> Phone : +84 43383101</li>
+                        <li><i class="fa fa-mobile" aria-hidden="true"></i> Phone : +84 343383101</li>
                      </ul>
                   </div>
                </div>
