@@ -76,7 +76,7 @@ head>
                                     <tr>
                                     <input type="hidden" name="productId" value="${c.value.product.id}"/>
                                     <th scope="row">${c.value.product.id}</th>
-                                    <td><img src="${c.value.product.imageURL}" width="50"/></td>
+                                    <td><img src="images/shop/${c.value.product.imageURL}" width="50"/></td>
                                     <td>${c.value.product.name}</td>
                                     <td>${c.value.product.price}</td>
                                     <td><input onchange="this.form.submit()" type="number" name="quantity" value="${c.value.quantity}"/></td>

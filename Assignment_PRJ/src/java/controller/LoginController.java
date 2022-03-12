@@ -92,8 +92,6 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("user");
         String password = request.getParameter("pass");
-        String remember = request.getParameter("remember");
-
         UserDBContext db = new UserDBContext();
         User acc = db.checkLogin(username, password);
 

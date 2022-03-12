@@ -38,12 +38,11 @@ public class FarmFilter implements Filter {
         HttpServletResponse httpRes = (HttpServletResponse) response;
         HttpSession session = httpRq.getSession();
         User acc = (User) session.getAttribute("acc");
-//        if(acc== null){
-//            httpRes.sendRedirect("view/stop.jsp");
-//        }else{
-//            chain.doFilter(request, response);
-//        }
-        chain.doFilter(request, response);
+        if(acc== null){
+            httpRes.sendRedirect("view/stop.jsp");
+        }else{
+            chain.doFilter(request, response);
+        }
     }
 
     @Override

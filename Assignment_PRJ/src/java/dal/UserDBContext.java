@@ -30,7 +30,7 @@ public class UserDBContext extends DBContext {
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 User user = new User();
-                user.setId(rs.getInt("ID"));
+                user.setId(rs.getInt("id"));
                 user.setRole_id(rs.getInt("role_id"));
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
@@ -44,7 +44,6 @@ public class UserDBContext extends DBContext {
 
                 list.add(user);
             }
-            return list;
         } catch (SQLException ex) {
             Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -341,6 +340,6 @@ public class UserDBContext extends DBContext {
 
     public static void main(String[] args) {
         
-        System.out.println(new UserDBContext().checkLogin("minh", "123456"));
+        System.out.println(new UserDBContext().getAllUser());
     }
 }

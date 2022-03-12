@@ -38,7 +38,7 @@
                             <c:if test="${sessionScope.acc != null}">
                                 <c:if test="${sessionScope.acc.role_id ==2 ||sessionScope.acc.role_id ==  3 }">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/Assignment_PRJ/controluser">Quản lý người dùng</a>
+                                        <a class="nav-link" href="/Assignment_PRJ/controlluser">Quản lý người dùng</a>
                                     </li>
                                 </c:if>
                             </c:if>
