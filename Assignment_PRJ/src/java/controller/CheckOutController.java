@@ -122,7 +122,7 @@ public class CheckOutController extends HttpServlet {
         //------------orderdetail
         new OrderDetailDBContext().SaveCart(orderId,carts);
         session.removeAttribute("carts");
-        response.sendRedirect("Thanks");
+        request.getRequestDispatcher("view/thanks.jsp").forward(request, response);
     }
 
     /**

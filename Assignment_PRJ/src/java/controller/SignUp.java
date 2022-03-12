@@ -61,14 +61,15 @@ public class SignUp extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String role_id = request.getParameter("role_id");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String re_password = request.getParameter("re-password");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String full_name = request.getParameter("full_name");
-
-        
+        int nrole_id = Integer.parseInt(role_id);
+        nrole_id = 1;
         UserDBContext db = new UserDBContext();
         if (db.checkUser(username) != null) {
             request.setAttribute("w_username", "Username " + username + " đã tồn tại!");
@@ -83,7 +84,7 @@ public class SignUp extends HttpServlet {
                 request.getRequestDispatcher("view/signup.jsp").forward(request, response);
             } else {
                 java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-                db.insert(username, password, email, phone, full_name, date);
+                db.insert(nrole_id,username, password, email, phone, full_name, date);
                 HttpSession session = request.getSession();
                 User acc = new User();
                 acc.setUsername(username);

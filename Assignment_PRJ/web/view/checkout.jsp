@@ -10,21 +10,37 @@
 <html lang="en">
 
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <!-- basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- mobile metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <!-- site metas -->
         <title>Sunshine-Farm</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="startbootstrap-shop-homepage-gh-pages/assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="startbootstrap-shop-homepage-gh-pages/css/styles.css" rel="stylesheet" />
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- bootstrap css -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- style css -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Responsive-->
+        <link rel="stylesheet" href="css/responsive.css">
+        <!-- fevicon -->
+        <link rel="icon" href="images/fevicon.png" type="image/gif" />
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+        <!-- Tweaks for older IEs-->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     </head>
 
     <body>
-        <%@include file="../components/narbarComponents.jsp" %>
+        <%@include file="../components/narbarComponents_1.jsp" %>
         <!-- Product section-->
         <section class="py-5">
 
@@ -50,7 +66,7 @@
                                     <tr>
                                 <input type="hidden" name="productId" value="${c.value.product.id}"/>
                                 <th scope="row">${c.value.product.id}</th>
-                                <td><img src="${c.value.product.imageURL}" width="50"/></td>
+                                <td><img src="images/shop/${c.value.product.imageURL}" width="50"/></td>
                                 <td>${c.value.product.name}</td>
                                 <td>${c.value.product.price}</td>
                                 <td>${c.value.quantity}</td>
@@ -65,26 +81,31 @@
                         <h3>Thông tin người mua</h3>
                         <form action="checkout" method="POST">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Email address</label>
-                                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="email" name="email" value="${sessionScope.acc.email}"/>
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="text" class="form-control" id="phone" name="phone" aria-describedby="emailHelp">
-                            </div> <div class="mb-3">
+                                <input type="text"  class="form-control" id="phone" name="phone" value="${sessionScope.acc.phone}"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="full_name" class="form-label">Người dùng </label>
+                                <input type="text" class="form-control" id="full_name" name="full_name" value="${sessionScope.acc.full_name}" />
+                            </div>
+                            <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp">
-                                <div class="mb-3">
-                                    <label for="note" class="form-label">Note</label>
-                                    <textarea class="form-control" id="note" name="note" rows="3"></textarea>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary">Send</button>
+                                <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="note" class="form-label">Note</label>
+                                <textarea class="form-control" id="note" name="note" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Submit</button>
                         </form>
+
                     </div>
                 </div>
-
             </div>
         </section>
-         <%@include file="../components/homefooter.jsp" %>
+        <%@include file="../components/homefooter.jsp" %>
 </html>

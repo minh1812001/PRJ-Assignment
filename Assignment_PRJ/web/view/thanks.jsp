@@ -24,7 +24,7 @@
     </head>
 
     <body>
-        <%@include file="../components/narbarComponents.jsp" %>
+        <%@include file="../components/narbarComponents_1.jsp" %>
         <div class="container" style="min-height: 500px">
             <div class="alert alert-danger text-center md-10" role="alert" >
                 Thanh toan thanh cong !! Cam an ban da su dung dich vu cua chung toi !!

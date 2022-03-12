@@ -111,7 +111,7 @@ public class UserDBContext extends DBContext {
 
     //DAO for create new account
     //DAO for create new account
-    public void insert(String username, String password, String email, String phone, String full_name, Date date) {
+    public void insert(int role_id,String username, String password, String email, String phone, String full_name, Date date) {
         String sql = "INSERT INTO [dbo].[User]\n"
                 + "           ([role_id]\n"
                 + "           ,[username]\n"
@@ -121,16 +121,17 @@ public class UserDBContext extends DBContext {
                 + "           ,[full_name]\n"
                 + "           ,[created_date])\n"
                 + "     VALUES\n"
-                + "           (1,?,?,?,?,?,?)";
+                + "           (?,?,?,?,?,?,?)";
         try {
 
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, username);
-            stm.setString(2, password);
-            stm.setString(3, email);
-            stm.setString(4, phone);
-            stm.setString(5, full_name);
-            stm.setDate(6, date);
+            stm.setInt(1, role_id);
+            stm.setString(2, username);
+            stm.setString(3, password);
+            stm.setString(4, email);
+            stm.setString(5, phone);
+            stm.setString(6, full_name);
+            stm.setDate(7, date);
             stm.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
@@ -150,6 +151,7 @@ public class UserDBContext extends DBContext {
                 username.setPassword(rs.getString("password"));
                 username.setEmail(rs.getString("email"));
                 username.setFull_name(rs.getString("full_name"));
+                username.setPhone(rs.getString("phone"));
                 return username;
             }
         } catch (SQLException ex) {
@@ -340,6 +342,6 @@ public class UserDBContext extends DBContext {
 
     public static void main(String[] args) {
         
-        System.out.println(new UserDBContext().getAllUser());
+        System.out.println(new UserDBContext().getUserByUsername("minh1812001"));
     }
 }

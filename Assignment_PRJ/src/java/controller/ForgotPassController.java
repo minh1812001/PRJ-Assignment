@@ -46,19 +46,27 @@ public class ForgotPassController extends HttpServlet {
         request.setCharacterEncoding("utf-8");
 
         String username = request.getParameter("username");
+        String email = request.getParameter("email");
+
         UserDBContext db = new UserDBContext();
         User ubyname = db.getUserByUsername(username);
         if (ubyname == null) {
             request.setAttribute("username", username + " không tồn tại");
-            request.getRequestDispatcher("view/forgotpas.jsp").forward(request, response);
+            request.getRequestDispatcher("view/forgotpass.jsp").forward(request, response);
         } else {
-            String newpass = db.generateRandomPassword();
-            SendMail m = new SendMail();
-            m.sentEmail(ubyname.getEmail(), "Thông báo từ FM Farm!!!", "Mật khẩu mới của bạn là :" + newpass);
-            User u = new User(ubyname.getId(), ubyname.getRole_id(), ubyname.getUsername(), newpass, ubyname.getEmail(), ubyname.getPhone(), ubyname.getFull_name(),
-                    ubyname.getDob(), ubyname.isGender(), ubyname.getAvatar(), ubyname.getCreated_date());
-            db.changePass(ubyname);
-            response.sendRedirect("home");
+            if (!email.endsWith(ubyname.getEmail())) {
+                request.setAttribute("email", "Email không khớp với tài khoản");
+                request.getRequestDispatcher("view/forgotpass.jsp").forward(request, response);
+            } else {
+                String newpass = db.generateRandomPassword();
+                SendMail m = new SendMail();
+                m.sentEmail(ubyname.getEmail(), "Thông báo từ FM Farm!!!", "Mật khẩu mới của bạn là :" + newpass);
+                User u = new User(ubyname.getId(), ubyname.getRole_id(), ubyname.getUsername(), newpass, ubyname.getEmail(), ubyname.getPhone(), ubyname.getFull_name(),
+                        ubyname.getDob(), ubyname.isGender(), ubyname.getAvatar(), ubyname.getCreated_date());
+                db.changePass(ubyname);
+                response.sendRedirect("login");
+            }
+
         }
     }
 

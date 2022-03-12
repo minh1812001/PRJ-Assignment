@@ -44,16 +44,22 @@
                         Quên mật khẩu
                     </span>
 
-                   <div for="username" class="wrap-input100 validate-input m-b-25" data-validate = "Enter username">
+                    <div for="username" class="wrap-input100 validate-input m-b-25" data-validate = "Enter username">
                         <input class="input100" type="text" id="username" name="username" placeholder="Username">
                         <span class="focus-input100"></span>
                     </div>
-
+                    <div for="email" class="wrap-input100 validate-input m-b-25" data-validate = "Enter email">
+                        <input class="input100" type="text" id="email" name="email" placeholder="Email">
+                        <span class="focus-input100"></span>
+                    </div>
+                    ${requestScope.username}
+                    ${requestScope.email}
+                    </br>
 
                     <div  class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">Thay đổi</button>
                     </div>
-                    
+
                 </form>
 
 
