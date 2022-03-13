@@ -3,16 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/dal/UserDBContext.java</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/checkout.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/SignUp.java</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/thanks.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/dal/OrderDetailDBContext.java</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/CartController.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/components/homeheader.jsp</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/ShopController.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/ControlluserController.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/controlluser.jsp</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/DeleteCartController.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/components/narbarComponents_1.jsp</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/shop.jsp</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/controlluser_1.jsp</file>
             <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/home.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/LoginController.java</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/forgotpass.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/CheckOutController.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/SearchUserController.java</file>
         </group>
     </open-files>
 </project-private>

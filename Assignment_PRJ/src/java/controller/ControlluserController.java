@@ -37,10 +37,25 @@ public class ControlluserController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        final int PAGE_SIZE = 10;
         HttpSession session = request.getSession();
         UserDBContext udb = new UserDBContext();
-        ArrayList<User> allUser = udb.getAllUser();
-        session.setAttribute("allUser", allUser);
+//        ArrayList<User> allUser = udb.getAllUser();
+//        session.setAttribute("allUser", allUser);
+         int page = 1;
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
+        }
+         ArrayList<User> listUsers = udb.getUsersWithPagging(page, PAGE_SIZE);
+        int totalUsers =udb.getTotalUsers();
+        int totalPage = totalUsers / PAGE_SIZE;
+        if (totalUsers % PAGE_SIZE != 0) {
+            totalPage += 1;
+        }
+        request.setAttribute("page", page);
+        request.setAttribute("totalPage", totalPage);
+        session.setAttribute("listUsers", listUsers);
         request.getRequestDispatcher("view/controlluser.jsp").forward(request, response);
 
     }

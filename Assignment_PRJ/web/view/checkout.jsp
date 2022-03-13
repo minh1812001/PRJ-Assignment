@@ -81,20 +81,17 @@
                         <h3>Thông tin người mua</h3>
                         <form action="checkout" method="POST">
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="text" class="form-control" id="email" name="email" value="${sessionScope.acc.email}"/>
+                                <label for="name" class="form-label">Họ tên (chính xác): </label>
+                                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp"  >
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="text"  class="form-control" id="phone" name="phone" value="${sessionScope.acc.phone}"/>
+                                <input type="text"  class="form-control" id="phone" name="phone" aria-describedby="emailHelp" >
                             </div>
-                            <div class="mb-3">
-                                <label for="full_name" class="form-label">Người dùng </label>
-                                <input type="text" class="form-control" id="full_name" name="full_name" value="${sessionScope.acc.full_name}" />
-                            </div>
+
                             <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp"/>
+                                <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
                                 <label for="note" class="form-label">Note</label>

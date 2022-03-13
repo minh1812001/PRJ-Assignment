@@ -36,7 +36,7 @@
                                 <a class="nav-link" href="/Assignment_PRJ/gallery">Bộ sưu tập</a>
                             </li>
                             <c:if test="${sessionScope.acc != null}">
-                                <c:if test="${sessionScope.acc.role_id ==2 ||sessionScope.acc.role_id ==  3 }">
+                                <c:if test="${sessionScope.acc.role_id ==  2 }">
                                     <li class="nav-item">
                                         <a class="nav-link" href="/Assignment_PRJ/controlluser">Quản lý người dùng</a>
                                     </li>

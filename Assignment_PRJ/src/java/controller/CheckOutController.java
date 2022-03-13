@@ -8,6 +8,7 @@ package controller;
 import dal.OrderDBContext;
 import dal.OrderDetailDBContext;
 import dal.ShippingDBContext;
+import dal.UserDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedHashMap;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpSession;
 import model.Cart;
 import model.Order;
 import model.Shipping;
+import model.User;
 
 /**
  *
@@ -84,14 +86,16 @@ public class CheckOutController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession sesstion = request.getSession();
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         String note = request.getParameter("note");
-        // shipping-order-orderdetai;
-        //-----------shipping
+//        response.getWriter().print(u);
+//         shipping-order-orderdetai;
+//        -----------shipping
         Shipping s = new Shipping();
         s.setName(name);
         s.setPhone(phone);
@@ -103,8 +107,8 @@ public class CheckOutController extends HttpServlet {
         if (carts == null) {
             carts = new LinkedHashMap<>();
         }
-
-        //tinh tong tien
+//
+       //tinh tong tien
         double totalPrice = 0;
         for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
             Integer productId = entry.getKey();

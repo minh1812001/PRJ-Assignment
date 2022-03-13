@@ -8,6 +8,7 @@
         <filter-name>FarmFilter</filter-name>
         <url-pattern>/add-to-cart</url-pattern>
         <url-pattern>/profile</url-pattern>
+        <url-pattern>/controlluser</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>LoginController</servlet-name>
@@ -89,6 +90,10 @@
         <servlet-name>ControlluserController</servlet-name>
         <servlet-class>controller.ControlluserController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchUserController</servlet-name>
+        <servlet-class>controller.SearchUserController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -168,6 +173,10 @@
     <servlet-mapping>
         <servlet-name>ControlluserController</servlet-name>
         <url-pattern>/controlluser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchUserController</servlet-name>
+        <url-pattern>/search-user</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

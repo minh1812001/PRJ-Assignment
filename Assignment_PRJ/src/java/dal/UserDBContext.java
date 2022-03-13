@@ -111,7 +111,7 @@ public class UserDBContext extends DBContext {
 
     //DAO for create new account
     //DAO for create new account
-    public void insert(int role_id,String username, String password, String email, String phone, String full_name, Date date) {
+    public void insert(int role_id, String username, String password, String email, String phone, String full_name, Date date) {
         String sql = "INSERT INTO [dbo].[User]\n"
                 + "           ([role_id]\n"
                 + "           ,[username]\n"
@@ -296,6 +296,35 @@ public class UserDBContext extends DBContext {
         return null;
     }
 
+    public ArrayList<User> search(String keyword) {
+        ArrayList<User> list = new ArrayList<>();
+        try {
+            String sql = "select *  from [User] where username like ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, "%" + keyword + "%");
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("ID"));
+                user.setRole_id(rs.getInt("role_id"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setPhone(rs.getString("phone"));
+                user.setFull_name(rs.getString("full_name"));
+                user.setDob(rs.getDate("dob"));
+                user.setGender(rs.getBoolean("gender"));
+                user.setAvatar(rs.getString("avatar"));
+                user.setCreated_date(rs.getDate("created_date"));
+                list.add(user);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
     public User getUserByUserId(int id) {
         try {
             String sql = "SELECT * FROM [User] WHERE [ID] = ?";
@@ -317,10 +346,56 @@ public class UserDBContext extends DBContext {
                 user.setCreated_date(rs.getDate("created_date"));
                 return user;
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public int getTotalUsers() {
+        try {
+            String sql = "select count(id)  from [User] ";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
+    public ArrayList<User> getUsersWithPagging(int page, int PAGE_SIZE) {
+        ArrayList<User> users = new ArrayList<>();
+        try {
+            String sql = "select * from [User] order by id\n"
+                    + "offset (?-1)*? row fetch next ? rows only";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, page);
+            stm.setInt(2, PAGE_SIZE);
+            stm.setInt(3, PAGE_SIZE);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("ID"));
+                user.setRole_id(rs.getInt("role_id"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setPhone(rs.getString("phone"));
+                user.setFull_name(rs.getString("full_name"));
+                user.setDob(rs.getDate("dob"));
+                user.setGender(rs.getBoolean("gender"));
+                user.setAvatar(rs.getString("avatar"));
+                user.setCreated_date(rs.getDate("created_date"));
+
+                users.add(user);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return users;
     }
 
     public String generateOTP() {
@@ -341,7 +416,7 @@ public class UserDBContext extends DBContext {
     }
 
     public static void main(String[] args) {
-        
-        System.out.println(new UserDBContext().getUserByUsername("minh1812001"));
+
+        System.out.println(new UserDBContext().getTotalUsers());
     }
 }

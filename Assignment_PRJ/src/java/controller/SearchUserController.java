@@ -5,7 +5,6 @@
  */
 package controller;
 
-import dal.ProductDBContext;
 import dal.UserDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,14 +13,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Product;
 import model.User;
 
 /**
  *
  * @author Minh-PC
  */
-public class SearchController extends HttpServlet {
+public class SearchUserController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,16 +32,10 @@ public class SearchController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            String keyword = request.getParameter("keyword");
-            ArrayList<Product> listProducts = new ProductDBContext().search(keyword);
-            request.setAttribute("listProducts", listProducts);
-            request.getRequestDispatcher("view/shop.jsp").forward(request, response);
-        }
+        String keyword = request.getParameter("keyword");
+        ArrayList<User> listUser = new UserDBContext().search(keyword);
+        request.setAttribute("listUser", listUser);
+        request.getRequestDispatcher("view/controlluser.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

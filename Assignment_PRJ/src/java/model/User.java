@@ -6,6 +6,7 @@
 package model;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 /**
  *
@@ -132,6 +133,10 @@ public class User {
     @Override
     public String toString() {
         return "User{" + "id=" + id + ", role_id=" + role_id + ", username=" + username + ", password=" + password + ", email=" + email + ", phone=" + phone + ", full_name=" + full_name + ", dob=" + dob + ", gender=" + gender + ", avatar=" + avatar + ", created_date=" + created_date + '}';
+    }
+
+    public void add(ArrayList<User> users) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

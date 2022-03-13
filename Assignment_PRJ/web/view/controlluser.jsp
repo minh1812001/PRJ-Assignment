@@ -47,49 +47,68 @@
         <section class="py-5">
             <div class="container" style="min-height: 500px">
                 <c:choose>
-                    <c:when test="${sessionScope.allUser.size()==0}">
-                        <h1>Danh sách người dùng trống</h1>
+                    <c:when test="${sessionScope.listUsers.size()==0}">
+                        Not Found
                     </c:when>
                     <c:otherwise>
-                        <h3>Danh sách người dùng</h3>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Ảnh đại diện</th>
-                                    <th scope="col">Tên người dùng</th>
-                                    <th scope="col">Số điện thoại </th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">vai trò</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${sessionScope.allUser}" var="au">
-                                <form>
-                                    <tr>
-                                    <input type="hidden" name="userId" value="${au.id}"/>
-                                    <th scope="row">${au.id}</th>
-                                    <td><img src="${au.avatar}" width="50"/></td>
-                                    <td>${au.full_name}</td>
-                                    <td>${au.phone}</td>
-                                    <td>${au.email}</td>
-                                    <td>${au.role_id}</td>              
-                                    <c:if test="${au.role_id==3}">
-                                        <td><a href="update-user?productId=${c.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Cập nhật</a>
-                                            <a href="delete-user?productId=${c.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Xóa</a></td>
-                                        </c:if>
-                                        <c:if test="${au.role_id==2}">
-                                        <td><a href="update-user?productId=${c.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Cập nhật</a>
-                                        </c:if>
-                                    </tr>
+                        <div class="row">
+                            <div class="col-md-6"> <h3>Danh sách người dùng</h3></div>
+                            <div class="col-md-6">
+                                <form action="search-user" class="d-flex mx-auto">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
                                 </form>
-
-                            </c:forEach>
-                            </tbody>
-                        </table>
+                            </div>
+                        </div>
+                        <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="controlluser?page=${page-1}">Previous</a></li>
+                                    <c:forEach begin="1" end="${totalPage}" var="i">
+                                    <li class="page-item ${i==page?"active":""}"><a class="page-link" href="controlluser?page=${i}">${i}</a></li>
+                                    </c:forEach>
+                                <li class="page-item"><a class="page-link" href="controlluser?page=${page+1}">Next</a></li>
+                            </ul>
+                        </nav>
                     </c:otherwise>
                 </c:choose>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Ảnh đại diện</th>
+                            <th scope="col">Tên người dùng</th>
+                            <th scope="col">Số điện thoại </th>
+                            <th scope="col">Email</th>
+                            <th scope="col">vai trò</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${sessionScope.listUsers}" var="au">
+                        <form>
+                            <tr>
+                            <input type="hidden" name="userId" value="${au.id}"/>
+                            <th scope="row">${au.id}</th>
+                            <td><img src="${au.avatar}" width="50"/></td>
+                            <td>${au.full_name}</td>
+                            <td>${au.phone}</td>
+                            <td>${au.email}</td>
+                            <td>${au.role_id}</td>      
+
+                            <c:if test="${au.role_id==1}">
+                                <td><a href="update-user?productId=${c.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Cập nhật</a>
+                                    <a href="delete-user?productId=${c.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Xóa</a></td>
+                                </c:if>
+                                <c:if test="${au.role_id==2}">
+                                <td><a href="update-user?productId=${c.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Cập nhật</a>
+                                </c:if>
+
+                                </tr>
+                        </form>
+
+                    </c:forEach>
+                    </tbody>
+                </table>
             </div>
         </section>
 
