@@ -233,24 +233,55 @@ public class UserDBContext extends DBContext {
         return n;
     }
 
-//    public void apply(int id) {
-//        try {
-//            String sql = "UPDATE [User] SET role_id = 1 WHERE ID = ?";
-//            PreparedStatement stm = connection.prepareCall(sql);
-//            stm.setInt(1, id);
-//            stm.executeUpdate();
-//        } catch (Exception e) {
-//        }
-//    }
-//    public void deny(int id) {
-//        try {
-//            String sql = "DELETE from [User] WHERE ID = ?";
-//            PreparedStatement stm = connection.prepareCall(sql);
-//            stm.setInt(1, id);
-//            stm.executeUpdate();
-//        } catch (Exception e) {
-//        }
-//    }
+    public void update(User s) {
+        String sql = "UPDATE [dbo].[User]\n"
+                + "   SET [role_id] = ?\n"
+                + "      ,[username] = ?\n"
+                + "      ,[password] = ?\n"
+                + "      ,[email] = ?\n"
+                + "      ,[phone] = ?\n"
+                + "      ,[full_name] = ?\n"
+                + "      ,[dob] = ?\n"
+                + "      ,[gender] = ?\n"
+                + "      ,[avatar] = ?\n"
+                + "      ,[created_date] = ?\n"
+                + " WHERE [id]=?";
+        PreparedStatement stm = null;
+        try {
+            stm = connection.prepareStatement(sql);
+            stm.setInt(11, s.getId());
+            stm.setInt(1, s.getRole_id());
+            stm.setString(2, s.getUsername());
+            stm.setString(3, s.getPassword());
+            stm.setString(4, s.getEmail());
+            stm.setString(5, s.getPhone());
+            stm.setString(6, s.getFull_name());
+            stm.setDate(7, s.getDob());
+            stm.setBoolean(8, s.isGender());
+            stm.setString(9, s.getAvatar());
+            stm.setDate(10, s.getCreated_date());
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (stm != null) {
+                try {
+                    stm.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
+
     public User checkEmail(String email) {
         String sql = "SELECT [username], password FROM [User] WHERE [email] = ?";
         try {
@@ -327,13 +358,14 @@ public class UserDBContext extends DBContext {
 
     public User getUserByUserId(int id) {
         try {
-            String sql = "SELECT * FROM [User] WHERE [ID] = ?";
+            String sql = "select * from [User]"
+                    + "where id = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 User user = new User();
-                user.setId(rs.getInt("ID"));
+                user.setId(rs.getInt("id"));
                 user.setRole_id(rs.getInt("role_id"));
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
@@ -369,7 +401,8 @@ public class UserDBContext extends DBContext {
     public ArrayList<User> getUsersWithPagging(int page, int PAGE_SIZE) {
         ArrayList<User> users = new ArrayList<>();
         try {
-            String sql = "select * from [User] order by id\n"
+            String sql = "Select Distinct u.id,u.role_id,u.username,u.password,u.email,u.phone,u.full_name,u.dob,u.gender,u.avatar,u.created_date  from [User] u left join \n"
+                    + "Orders od on u.id=od.user_id  order by id\n"
                     + "offset (?-1)*? row fetch next ? rows only";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, page);
@@ -378,7 +411,7 @@ public class UserDBContext extends DBContext {
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 User user = new User();
-                user.setId(rs.getInt("ID"));
+                user.setId(rs.getInt("id"));
                 user.setRole_id(rs.getInt("role_id"));
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
@@ -396,6 +429,38 @@ public class UserDBContext extends DBContext {
             Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return users;
+    }
+
+    public void deleteUser(User u) {
+        try {
+            String sql_delete_orders = "DELETE FROM [dbo].[Orders]\n"
+                    + "      WHERE [user_id]=?";
+            String sql_delete_user = "DELETE FROM [dbo].[User]\n"
+                    + " WHERE [id] = ?";
+            connection.setAutoCommit(false);
+            PreparedStatement stm_delete_orders = connection.prepareStatement(sql_delete_orders);
+            stm_delete_orders.setInt(1, u.getId());
+            stm_delete_orders.executeUpdate();
+            PreparedStatement stm_delete_user = connection.prepareStatement(sql_delete_user);
+            stm_delete_user.setInt(1, u.getId());
+            stm_delete_user.executeUpdate();
+            connection.commit();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                connection.rollback();
+            } catch (SQLException ex1) {
+                Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            //close connection
+        }
+
     }
 
     public String generateOTP() {
@@ -417,6 +482,6 @@ public class UserDBContext extends DBContext {
 
     public static void main(String[] args) {
 
-        System.out.println(new UserDBContext().getTotalUsers());
+        System.out.println(new UserDBContext().getUserByUserId(1));
     }
 }

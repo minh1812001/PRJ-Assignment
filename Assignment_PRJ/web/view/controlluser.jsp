@@ -61,12 +61,10 @@
                             </div>
                         </div>
                         <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="controlluser?page=${page-1}">Previous</a></li>
+                            <ul class="pagination">                  
                                     <c:forEach begin="1" end="${totalPage}" var="i">
                                     <li class="page-item ${i==page?"active":""}"><a class="page-link" href="controlluser?page=${i}">${i}</a></li>
-                                    </c:forEach>
-                                <li class="page-item"><a class="page-link" href="controlluser?page=${page+1}">Next</a></li>
+                                    </c:forEach>                               
                             </ul>
                         </nav>
                     </c:otherwise>
@@ -85,7 +83,7 @@
                     </thead>
                     <tbody>
                         <c:forEach items="${sessionScope.listUsers}" var="au">
-                        <form>
+                        <form action="controlluser">
                             <tr>
                             <input type="hidden" name="userId" value="${au.id}"/>
                             <th scope="row">${au.id}</th>
@@ -96,19 +94,22 @@
                             <td>${au.role_id}</td>      
 
                             <c:if test="${au.role_id==1}">
-                                <td><a href="update-user?productId=${c.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Cập nhật</a>
-                                    <a href="delete-user?productId=${c.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Xóa</a></td>
+                                <td><a href="update-user?userId=${au.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Cập nhật</a>
                                 </c:if>
-                                <c:if test="${au.role_id==2}">
-                                <td><a href="update-user?productId=${c.value.product.id}" class="btn btn-outline-danger"><i class="bi bi-trash"></i>Cập nhật</a>
-                                </c:if>
-
+                               
                                 </tr>
                         </form>
 
                     </c:forEach>
                     </tbody>
                 </table>
+                        <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+                            <ul class="pagination">                  
+                                    <c:forEach begin="1" end="${totalPage}" var="i">
+                                    <li class="page-item ${i==page?"active":""}"><a class="page-link" href="controlluser?page=${i}">${i}</a></li>
+                                    </c:forEach>                               
+                            </ul>
+                        </nav>
             </div>
         </section>
 

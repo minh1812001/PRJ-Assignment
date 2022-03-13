@@ -3,16 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/components/homeheader.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/ShopController.java</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/ControlluserController.java</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/controlluser.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/DeleteCartController.java</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/components/narbarComponents_1.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/shop.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/controlluser_1.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/home.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/SearchUserController.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/UserFilter.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/UserProfileController.java</file>
         </group>
     </open-files>
 </project-private>

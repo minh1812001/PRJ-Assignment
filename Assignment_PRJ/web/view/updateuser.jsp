@@ -87,11 +87,18 @@
             <%@include file="../components/homeheader.jsp" %>
         </header>
         <div class="container rounded bg-white mt-5">
-            <form action="#" method="POST">
+            <form action="update-user" method="POST">
                 <div class="row">
                     <div class="col-md-4 border-right">
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                                                                                                     src="https://i.imgur.com/0eg0aG0.jpg" width="90"><span class="font-weight-bold">${sessionScope.acc.full_name}</span><span class="text-black-50">${sessionScope.acc.email}</span></div>
+                                                                                                     src="${requestScope.uss.avatar}" width="90"><span class="font-weight-bold">${requestScope.uss.full_name}</span><span class="text-black-50">${requestScope.uss.email}</span></div>
+                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+
+                                
+                                <div class="col-md-6">Tài khoản: <input type="text" class="form-control" name="username" value="${requestScope.uss.username}"  placeholder="username"></div>
+                                <div class="col-md-6">Mật khẩu: <input type="text" class="form-control" name="password" value="${requestScope.uss.password}"  placeholder="password"></div>
+
+                            </div>
                     </div>
                     <div class="col-md-8">
                         <div class="p-3 py-5">
@@ -99,31 +106,44 @@
                                 <h6 class="text-right">Chỉnh sửa thông tin cá nhân</h6>
                             </div>
                             <div class="row mt-2">
-                                <div class="col-md-6">Tên người dùng: <input type="text" class="form-control" name="full_name" value="${sessionScope.acc.full_name}"  placeholder="Full name"  ></div>
+                                <div class="col-md-6">UserID: <input type="text" class="form-control" name="userId" value="${requestScope.uss.id}"
+                                                                     placeholder="Email" ></div>
+                                <div class="col-md-6">Vai trò:<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="role_id">
+
+                                        <option value="1">${requestScope.uss.role_id}</option>
+                                        <option value="2">2</option>
+                                    </select></div>
+
+                                <div class="col-md-6">Người dùng: <input type="text" class="form-control" name="full_name" value="${requestScope.uss.full_name}"  placeholder="Full name"  ></div>
                                 <div class="col-md-6">Giới tính:                            
-                                    <c:if test="${sessionScope.acc.gender==true}">
+                                    <c:if test="${requestScope.uss.gender==true}">
                                         <input type="radio" class="form-control" name="gender" value="male" checked="">Nam
                                         <input type="radio" class="form-control" name="gender" value="female">Nữ
                                     </c:if>
-                                    <c:if test="${sessionScope.acc.gender==false}">
+                                    <c:if test="${requestScope.uss.gender==false}">
                                         <input type="radio" class="form-control" name="gender" value="male" >Nam
                                         <input type="radio" class="form-control" name="gender" value="female"checked="">Nữ
-                                    </c:if>
+                                    </c:if>    
                                 </div>
+
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-6">Email: <input type="text" class="form-control" name="email" value="${sessionScope.acc.email}"
+
+                                <div class="col-md-6">Email: <input type="text" class="form-control" name="email" value="${requestScope.uss.email}"
                                                                     placeholder="Email" ></div>
-                                <div class="col-md-6">Liên hệ: <input type="text" class="form-control" name="phone" value="${sessionScope.acc.phone}"  placeholder="Phone number"></div>
+
+                                <div class="col-md-6">Liên hệ: <input type="text" class="form-control" name="phone" value="${requestScope.uss.phone}"  placeholder="Phone number"></div>
+                                <div class="col-md-6">Avatar: <input type="text" class="form-control" name="avatar" value="${requestScope.uss.avatar}"  placeholder="Avatar"></div>
+
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-6">Ngày Sinh<input type="date" class="form-control" name="dob" placeholder="Date of birth"
-                                                                      value="${sessionScope.acc.dob}"></div>
-                                <div class="col-md-6">Ngày tạo tài khoản<input type="date" class="form-control" value="${sessionScope.acc.created_date}"
+                                                                      value="${requestScope.uss.dob}"></div>
+                                <div class="col-md-6">Ngày tạo tài khoản<input type="date" class="form-control" name="created_date" value="${requestScope.uss.created_date}"
                                                                                ></div>
                             </div>
                             <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit" value="save profile">Save Profile</button></div>
-                            <div class="mt-5 text-right"><a href="/Assignment_PRJ/changepass"><button class="btn btn-primary profile-button" type="button">Đổi mật khẩu</button></a></div>
+
                         </div>
                     </div>
                 </div>

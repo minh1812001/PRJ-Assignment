@@ -5,7 +5,6 @@
  */
 package controller;
 
-import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -25,9 +24,9 @@ import model.User;
  *
  * @author Minh-PC
  */
-public class FarmFilter implements Filter {
-
-    @Override
+public class UserFilter implements Filter {
+    
+ @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
     }
@@ -41,9 +40,11 @@ public class FarmFilter implements Filter {
         if (acc == null) {
             httpRes.sendRedirect("view/stop.jsp");
         } else {
-
-            chain.doFilter(request, response);
-
+                if(acc.getRole_id()==1){
+                    httpRes.sendRedirect("home");
+                }else{
+                      chain.doFilter(request, response);
+                }
         }
     }
 
@@ -51,5 +52,5 @@ public class FarmFilter implements Filter {
     public void destroy() {
 
     }
-
+    
 }

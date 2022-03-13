@@ -3,6 +3,7 @@
     Created on : Feb 23, 2022, 2:16:20 PM
     Author     : Minh-PC
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
