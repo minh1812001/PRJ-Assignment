@@ -52,7 +52,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+ 
                                     <th scope="col">Hình ảnh</th>
                                     <th scope="col">Tên</th>
                                     <th scope="col">Giá</th>
@@ -65,7 +65,7 @@
                                 <c:forEach items="${carts}" var="c">
                                     <tr>
                                 <input type="hidden" name="productId" value="${c.value.product.id}"/>
-                                <th scope="row">${c.value.product.id}</th>
+
                                 <td><img src="images/shop/${c.value.product.imageURL}" width="50"/></td>
                                 <td>${c.value.product.name}</td>
                                 <td>${c.value.product.price}</td>
@@ -76,7 +76,7 @@
                             </c:forEach>
                             </tbody>
                         </table>
-                        <h3>Tổng tiền: $${totalMoney}</h3></div>
+                        <h3>Tổng tiền: ${totalMoney} VND</h3></div>
                     <div class="col-md-4"style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem">
                         <h3>Thông tin người mua</h3>
                         <form action="checkout" method="POST">
@@ -97,7 +97,7 @@
                                 <label for="note" class="form-label">Note</label>
                                 <textarea class="form-control" id="note" name="note" rows="3"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            <button type="submit" class="btn btn-primary w-100">Hoàn thành</button>
                         </form>
 
                     </div>

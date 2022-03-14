@@ -36,7 +36,8 @@
                      <h3>Liên hệ</h3>
                      <ul class="conta">
                         <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> Email: minh1812001@gmail.com</a></li>
-                        <li><i class="fa fa-mobile" aria-hidden="true"></i> Phone : +84 343383101</li>
+                        <li><i class="fa fa-mobile" aria-hidden="true"></i> Phone : 0915277048</li>
+                        <li ><a href="https://goo.gl/maps/bTn3pHjdPqjj3rrV8"><i class="fa fa-map" aria-hidden="true"> Địa chỉ :Thôn Cao Phú, Xuân Vinh, Thọ Xuân, Thanh Hoá, Việt Nam</i> </a> </li>
                      </ul>
                   </div>
                </div>

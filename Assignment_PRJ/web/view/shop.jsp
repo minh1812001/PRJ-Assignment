@@ -10,38 +10,38 @@
 <html lang="en">
 
     <head>
-         <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>Sunshine-Farm</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+        <!-- basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- mobile metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <!-- site metas -->
+        <title>Sunshine-Farm</title>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- bootstrap css -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- style css -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Responsive-->
+        <link rel="stylesheet" href="css/responsive.css">
+        <!-- fevicon -->
+        <link rel="icon" href="images/fevicon.png" type="image/gif" />
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+        <!-- Tweaks for older IEs-->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>TM Shop</title>
-<!--         Favicon-->
+        <!--         Favicon-->
         <link rel="icon" type="image/x-icon" href="startbootstrap-shop-homepage-gh-pages/assets/favicon.ico" />
-         Bootstrap icons
+        Bootstrap icons
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="startbootstrap-shop-homepage-gh-pages/css/styles.css" rel="stylesheet" />
@@ -55,7 +55,7 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row">
                     <div class="col-md-3 mb-5">
-                        <h3>List Categories</h3>
+                        <h3>Loại sản phẩm</h3>
                         <ul class="list-group">
                             <c:forEach items="${sessionScope.listCategories}" var="C">
                                 <li class="list-group-item"><a href="filter-category?categoryId=${C.id}">${C.name}</a></li>
@@ -63,10 +63,10 @@
                         </ul>
                     </div>
                     <div class="col-md-9">
-                        <h3>List Products</h3>
+                        <h3>Sản phẩm</h3>
                         <c:choose>
                             <c:when test="${listProducts == null || listProducts.size() == 0}">
-                                Not Found
+                                không có sản phẩm nào !!
                             </c:when>
                             <c:otherwise>
                                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
@@ -85,13 +85,7 @@
                             <c:forEach items="${listProducts}" var="P">
                                 <div class="col mb-5">
                                     <div class="card h-100">
-                                        <!-- Sale badge-->
-                                        <div
-                                            class="badge bg-dark text-white position-absolute"
-                                            style="top: 0.5rem; right: 0.5rem"
-                                            >
-                                            Sale
-                                        </div>
+
                                         <!-- Product image-->
                                         <a href="detail?productId=${P.id}">
                                             <img class="card-img-top"
@@ -117,17 +111,23 @@
                                                     <div class="bi-star-fill"></div>
                                                 </div>
                                                 <!-- Product price-->
-                                                <span class="text-muted text-decoration-line-through"
-                                                      >$20.00</span
-                                                >
-                                                $${P.price}
+                                                <c:if test="${P.category_id==1}">${P.price} VND /1 kg</c:if>
+                                                <c:if test="${P.category_id==2}">${P.price} VND /1 kg</c:if>
+                                                <c:if test="${P.category_id==3}">
+                                                    <c:choose>
+                                                        <c:when test="${P.id==6}">${P.price} VND / 1 lit</c:when>
+                                                        <c:otherwise>${P.price} VND / 1 ngay</c:otherwise>
+                                                    </c:choose>>
+                                                </c:if>
+
+
                                             </div>
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                             <div class="text-center">
                                                 <a class="btn btn-outline-dark mt-auto" href="add-to-cart?productId=${P.id}"
-                                                   >Add to cart</a
+                                                   >Thêm vào giỏ hàng</a
                                                 >
                                             </div>
                                         </div>
@@ -148,7 +148,7 @@
                 </div>
             </div>
         </section>
-         <%@include file="../components/homefooter.jsp" %>
+        <%@include file="../components/homefooter.jsp" %>
     </body>
 
 </html>

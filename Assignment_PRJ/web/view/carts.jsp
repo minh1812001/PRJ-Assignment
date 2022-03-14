@@ -38,10 +38,9 @@ head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Shop Homepage - Start Bootstrap Template</title>
 <!--         Favicon-->
         <link rel="icon" type="image/x-icon" href="startbootstrap-shop-homepage-gh-pages/assets/favicon.ico" />
-         Bootstrap icons
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="startbootstrap-shop-homepage-gh-pages/css/styles.css" rel="stylesheet" />
@@ -54,10 +53,10 @@ head>
             <div class="container" style="min-height: 500px">
                 <c:choose>
                     <c:when test="${sessionScope.carts.size()==0 || sessionScope.carts.size()==null}">
-                        <h1>List cart is Empty</h1>
+                        <h1>Danh sách sản phẩm trống</h1>
                     </c:when>
                     <c:otherwise>
-                        <h3>List Products</h3>
+                        <h3>Danh sách sản phẩm</h3>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -88,8 +87,8 @@ head>
                             </c:forEach>
                             </tbody>
                         </table>
-                        <h3>Tổng tiền: $${totalMoney}</h3>
-                        <a href="checkout" class="btn btn-outline-success w-20">Thanh toán</a>
+                        <h3>Tổng tiền: ${totalMoney} VND</h3>
+                        <a href="checkout" class="btn btn-outline-success w-20">Tiếp tục</a>
                     </c:otherwise>
                 </c:choose>
             </div>
