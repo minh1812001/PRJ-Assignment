@@ -17,8 +17,9 @@
         <filter-name>FarmFilter</filter-name>
         <url-pattern>/add-to-cart</url-pattern>
         <url-pattern>/carts</url-pattern>
-        <url-pattern>/shop</url-pattern>
+        <url-pattern>/delete-cart</url-pattern>
         <url-pattern>/profile</url-pattern>
+        <url-pattern>/update-quantity</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>LoginController</servlet-name>
