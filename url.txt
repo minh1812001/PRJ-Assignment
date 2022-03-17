@@ -1,6 +1,14 @@
 
 jdbc:sqlserver://MINH-PC\SQLEXPRESS:1433;databaseName=PRJ_Assignment
 
+link github:
+
+https://github.com/minh1812001/PRJ-Assignment
+
+
+
+
+-------------------------------Add github-----------------------------------------------
 git add .
 git commit -m "first commit"
 git push

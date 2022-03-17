@@ -77,31 +77,43 @@
                         <div class="gallery_img">
                             <figure><img src="images/gallery1.jpg" alt="#"/></figure>
                         </div>
+                         <p>Đến với vườn cam của chúng tôi mọi người được thưởng miễn phí tại vườn 
+                            bên cạnh đó nếu ban mua tại vườn giá cả cũng sẻ tốt hơn rất nhiều so với loại cam tương tự trên thị trường</p>
                     </div>
+                    </br>
                     <div class="col-md-4 col-sm-6">
                         <div class="gallery_img">
                             <figure><img src="images/gallery2 (1).jpg" alt="#"/></figure>
                         </div>
+                        <p>Bải bồi gần nông trại,đây là một địa điểm vui của nhiều bạn trẻ , là nơi của những cuôc
+                        picnic mang lại nhiều trải nghiệm vui vẻ.</p>
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="gallery_img">
                             <figure><img src="images/gallery3.png" alt="#"/></figure>
                         </div>
+                          <p>Đốt lữa trại , đây là một hoạt động mang lại sự kết nối của bạn với người thân và bạn bè
+                              họ thường ngồi hát bên cạnh đống lữa hay là nướng các lại thực phẩm như khoai sắn tròng đó...</p>
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="gallery_img">
-                            <figure><img src="images/gallery4.jpg" alt="#"/></figure>
+                            <figure><img src="images/gallery4.jpg" alt="#"/></figure>    
                         </div>
+                         <p>Cắm trại, nó có lẻ là hoạt động mà trong đời mọi người nên thử một lần.
+                             Nó là trại nghiệm vô cùng, vô cùng thú vị</p>
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="gallery_img">
                             <figure><img src="images/gallery5.jpg" alt="#"/></figure>
                         </div>
+                        <p>Đến với vườn Xoài của chúng tôi mọi người được thưởng miễn phí tại vườn 
+                            bên cạnh đó nếu ban mua tại vườn giá cả cũng sẻ tốt hơn rất nhiều so với loại cam tương tự trên thị trường</p>
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="gallery_img">
                             <figure><img src="images/gallery6.jpeg" alt="#"/></figure>
                         </div>
+                         <p>Các cần thủ cũng có thể đến đây để trải nghiệm săn tìm thủy quái </p>
                     </div>
                 </div>
             </div>
