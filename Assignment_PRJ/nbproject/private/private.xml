@@ -4,20 +4,20 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/dal/UserDBContext.java</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/components/homefooter.jsp</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/UpdateUserController.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/ControlluserController.java</file>
             <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/SignUp.java</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/shop.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/home.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/LoginController.java</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/HomeController.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/DeleteCartController.java</file>
             <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/InsertProductShopController.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/FarmFilter.java</file>
             <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/ShopController.java</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/addproductinshop.jsp</file>
-            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/model/User.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/controlluser.jsp</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/UserFilter.java</file>
             <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/dal/ProductDBContext.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/ViewProductController.java</file>
             <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/web/view/updateuser.jsp</file>
             <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/dal/OrderDBContext.java</file>
+            <file>file:/C:/Users/Minh-PC/Desktop/PRJ-Assignment/Assignment_PRJ/src/java/controller/LogoutController.java</file>
         </group>
     </open-files>
 </project-private>

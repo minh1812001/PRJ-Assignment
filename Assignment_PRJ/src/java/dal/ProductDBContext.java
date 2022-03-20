@@ -206,7 +206,7 @@ public class ProductDBContext extends DBContext {
     }
 
     //them product in shop
-    public void insertProduct(Product p) {
+    public Product insertProduct(Product p) {
         try {
             String sql = "INSERT INTO [dbo].[Product]\n"
                     + "           ([name]\n"
@@ -228,11 +228,21 @@ public class ProductDBContext extends DBContext {
             stm.setInt(7, p.getCategory_id());
             stm.executeUpdate();
             ResultSet rs = stm.getGeneratedKeys();
-       
-
+//            if(rs.next()){
+//                Product x = new Product();
+//                x.setName(rs.getString("nane"));
+//                x.setQuantity(rs.getInt("quantity"));
+//                x.setPrice(rs.getDouble("price"));
+//                x.setDescription(rs.getString("description"));
+//                x.setImageURL(rs.getString("imageURL"));
+//                x.setCategory_id(rs.getInt("category_id"));
+//                
+//            }
+            return p;
         } catch (SQLException ex) {
             Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
     }
     public static void main(String[] args) {
         Product p ;

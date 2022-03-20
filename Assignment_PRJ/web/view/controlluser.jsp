@@ -53,12 +53,7 @@
                     <c:otherwise>
                         <div class="row">
                             <div class="col-md-6"> <h3>Danh sách người dùng</h3></div>
-                            <div class="col-md-6">
-                                <form action="search-user" class="d-flex mx-auto">
-                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
-                                    <button class="btn btn-outline-success" type="submit">Search</button>
-                                </form>
-                            </div>
+
                         </div>
                         <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                             <ul class="pagination">                  

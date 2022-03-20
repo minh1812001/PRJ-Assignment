@@ -75,8 +75,8 @@ public class InsertProductShopController extends HttpServlet {
         java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
  
         Product p = new Product(x+1, category_id, name, quantity, price, description, imageURL, date);        
-        pdb.insertProduct(p);
-        request.setAttribute("insertProduct", p);
+        Product insertProduct = pdb.insertProduct(p);
+        request.setAttribute("insertProduct", insertProduct);
         response.sendRedirect("shop");
     }
 

@@ -13,7 +13,6 @@
         <url-pattern>/controlluser</url-pattern>
         <url-pattern>/update-user</url-pattern>
         <url-pattern>/productshop</url-pattern>
-      
     </filter-mapping>
     <filter-mapping>
         <filter-name>FarmFilter</filter-name>
@@ -102,10 +101,6 @@
     <servlet>
         <servlet-name>ControlluserController</servlet-name>
         <servlet-class>controller.ControlluserController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SearchUserController</servlet-name>
-        <servlet-class>controller.SearchUserController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UpdateUserController</servlet-name>
@@ -198,10 +193,6 @@
     <servlet-mapping>
         <servlet-name>ControlluserController</servlet-name>
         <url-pattern>/controlluser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SearchUserController</servlet-name>
-        <url-pattern>/search-user</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateUserController</servlet-name>
