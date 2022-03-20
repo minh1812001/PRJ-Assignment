@@ -5,9 +5,11 @@
  */
 package dal;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -178,6 +180,7 @@ public class ProductDBContext extends DBContext {
         return null;
     }
 // su dung tool 
+
     public Product getProductById1(int productId) {
         try {
             String sql = "select *  from Product where id = ?";
@@ -200,5 +203,43 @@ public class ProductDBContext extends DBContext {
             Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    //them product in shop
+    public void insertProduct(Product p) {
+        try {
+            String sql = "INSERT INTO [dbo].[Product]\n"
+                    + "           ([name]\n"
+                    + "           ,[quantity]\n"
+                    + "           ,[price]\n"
+                    + "           ,[description]\n"
+                    + "           ,[imageURL]\n"
+                    + "           ,[Created_date]\n"
+                    + "           ,[category_id])\n"
+                    + "     VALUES\n"
+                    + "           (?,?,?,?,?,?,?)";
+            PreparedStatement stm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            stm.setString(1, p.getName());
+            stm.setInt(2, p.getQuantity());
+            stm.setDouble(3, p.getPrice());
+            stm.setString(4, p.getDescription());
+            stm.setString(5, p.getImageURL());
+            stm.setDate(6, p.getCreated_date());
+            stm.setInt(7, p.getCategory_id());
+            stm.executeUpdate();
+            ResultSet rs = stm.getGeneratedKeys();
+       
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public static void main(String[] args) {
+        Product p ;
+        String date = "2021-11-1";
+        Date x = Date.valueOf(date);
+        String name = "hong";
+        p = new Product(11, 1, name, 50, 10000, "good", "good",x);
+//        System.out.println(new ProductDBContext().insertProduct(p));
     }
 }

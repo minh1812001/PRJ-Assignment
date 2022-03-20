@@ -61,6 +61,18 @@
                                 <li class="list-group-item"><a href="filter-category?categoryId=${C.id}">${C.name}</a></li>
                                 </c:forEach>
                         </ul>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <ul>
+                            <c:if test="${sessionScope.acc.role_id==2}">
+                                <div class="text-center">
+                                                <a class="btn btn-outline-dark mt-auto" href="/Assignment_PRJ/productshop"
+                                                   >Thêm sản phẩm</a
+                                                >
+                                            </div>
+                            </c:if>
+                        </ul>
                     </div>
                     <div class="col-md-9">
                         <h3>Sản phẩm</h3>
